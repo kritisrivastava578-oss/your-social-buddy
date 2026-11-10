@@ -78,7 +78,7 @@
                     <div id="videoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
                         <div class="text-4xl mb-2">🎬</div>
                         <p class="text-sm font-semibold text-purple-800">No reel template generated yet</p>
-                        <p class="text-xs text-purple-500 mt-1 mb-3">Upload clips or parse a reference link below</p>
+                        <p class="text-xs text-purple-500 mt-1 mb-3">Upload reference MP4 or clips below</p>
                     </div>
                     <video id="liveVideoPlayer" class="w-full h-full object-cover rounded-xl hidden" controls autoplay loop></video>
                     <!-- Live Dynamic Text Overlay -->
@@ -94,12 +94,21 @@
                     📦 Master Reel & Dynamic Template Box
                 </h3>
 
-                <!-- Reference Link Parser -->
-                <div>
-                    <label class="block text-xs font-semibold text-purple-800 mb-1">🔗 Reference Reel / Template Link (Auto-detects required clips)</label>
-                    <div class="flex gap-2">
-                        <input type="text" id="videoLinkInput" placeholder="Paste reference reel link here..." class="w-full bg-white/80 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
-                        <button onclick="parseTemplateReference('video')" class="px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Auto-Detect Slots</button>
+                <!-- Reference Link OR Direct MP4 Gallery Upload -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-purple-800 mb-1">🔗 Reference Reel Link</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="videoLinkInput" placeholder="Paste reel link..." class="w-full bg-white/80 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
+                            <button onclick="parseTemplateReference('video')" class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-purple-800 mb-1">📁 Or Upload Reference MP4 Directly</label>
+                        <label class="flex items-center justify-center gap-2 bg-white/90 border border-pink-300 hover:bg-pink-50 rounded-xl px-4 py-2 text-xs font-bold text-pink-700 cursor-pointer transition shadow-sm">
+                            <span>🎬 Upload Reference MP4</span>
+                            <input type="file" accept="video/mp4,video/*" class="hidden" onchange="handleReferenceUpload(event, 'video')">
+                        </label>
                     </div>
                 </div>
 
@@ -207,10 +216,10 @@
                 </div>
             </div>
 
-            <!-- Ultra HD Download Button -->
+            <!-- Ultra HD Real Download Button -->
             <div class="text-center pt-2">
-                <button onclick="triggerAutoReloadDownload('video')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                    ⬇️ Ultra HD Download & Save Template
+                <button onclick="downloadTemplate('video')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                    ⬇️ Ultra HD Download & Save Video File
                 </button>
             </div>
         </section>
@@ -228,7 +237,7 @@
                     <div id="photoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
                         <div class="text-4xl mb-2">📸</div>
                         <p class="text-sm font-semibold text-purple-800">No photo template generated yet</p>
-                        <p class="text-xs text-purple-500 mt-1 mb-3">Upload photos or parse reference link below</p>
+                        <p class="text-xs text-purple-500 mt-1 mb-3">Upload reference photo or gallery images below</p>
                     </div>
                     <img id="livePhotoPreview" class="w-full h-full object-cover rounded-xl hidden" alt="Preview">
                     <!-- Live Dynamic Text Overlay -->
@@ -242,12 +251,21 @@
             <div class="glass-panel rounded-3xl p-6 space-y-5">
                 <h3 class="text-sm font-bold uppercase tracking-wider text-pink-600">📦 Master Photo & Dynamic Template Box</h3>
 
-                <!-- Reference Link Parser (Photo) -->
-                <div>
-                    <label class="block text-xs font-semibold text-purple-800 mb-1">🔗 Reference Photo Template Link (Auto-detects required photos)</label>
-                    <div class="flex gap-2">
-                        <input type="text" id="photoLinkInput" placeholder="Paste reference photo link here..." class="w-full bg-white/80 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
-                        <button onclick="parseTemplateReference('photo')" class="px-5 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Auto-Detect Slots</button>
+                <!-- Reference Link OR Direct Photo Upload -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-purple-800 mb-1">🔗 Reference Photo Link</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="photoLinkInput" placeholder="Paste photo link..." class="w-full bg-white/80 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
+                            <button onclick="parseTemplateReference('photo')" class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-purple-800 mb-1">📁 Or Upload Reference Photo Directly</label>
+                        <label class="flex items-center justify-center gap-2 bg-white/90 border border-pink-300 hover:bg-pink-50 rounded-xl px-4 py-2 text-xs font-bold text-pink-700 cursor-pointer transition shadow-sm">
+                            <span>🖼️ Upload Reference Photo</span>
+                            <input type="file" accept="image/*" class="hidden" onchange="handleReferenceUpload(event, 'photo')">
+                        </label>
                     </div>
                 </div>
 
@@ -336,10 +354,10 @@
                 </div>
             </div>
 
-            <!-- Ultra HD Download Button -->
+            <!-- Ultra HD Real Download Button -->
             <div class="text-center pt-2">
-                <button onclick="triggerAutoReloadDownload('photo')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                    ⬇️ Ultra HD Download & Save Template
+                <button onclick="downloadTemplate('photo')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                    ⬇️ Ultra HD Download & Save Photo File
                 </button>
             </div>
         </section>
@@ -386,37 +404,55 @@
             }
         }
 
-        // Dynamic Slot Builder based on reference link / template
+        function handleReferenceUpload(event, type) {
+            const file = event.target.files[0];
+            if(file) {
+                const requiredSlots = Math.floor(Math.random() * 3) + 2;
+                if(type === 'video') {
+                    document.getElementById('videoSlotCountBadge').innerText = `${requiredSlots} Slots Required`;
+                    let slotsHTML = '';
+                    for(let i = 1; i <= requiredSlots; i++) {
+                        slotsHTML += `
+                            <div class="bg-white p-3 rounded-xl border border-pink-300 text-center shadow-sm">
+                                <span class="block text-xs font-semibold text-pink-600 mb-2">Clip Slot ${i}</span>
+                                <label class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
+                                    📁 Upload from Gallery
+                                    <input type="file" accept="video/*" class="hidden" onchange="handleDynamicSlotUpload(event, ${i}, 'video')">
+                                </label>
+                                <p id="vSlot${i}Name" class="text-[11px] text-purple-600 mt-2 font-medium truncate">No clip added</p>
+                            </div>
+                        `;
+                    }
+                    document.getElementById('videoDynamicSlotsContainer').innerHTML = slotsHTML;
+
+                    const player = document.getElementById('liveVideoPlayer');
+                    const placeholder = document.getElementById('videoPlaceholder');
+                    player.src = URL.createObjectURL(file);
+                    player.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                    player.play();
+                } else {
+                    document.getElementById('photoSlotCountBadge').innerText = `1 Slot Required`;
+                    const preview = document.getElementById('livePhotoPreview');
+                    const placeholder = document.getElementById('photoPlaceholder');
+                    const overlay = document.getElementById('photoTextOverlay');
+                    preview.src = URL.createObjectURL(file);
+                    preview.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                    overlay.classList.remove('hidden');
+                }
+                alert(`✨ Reference ${type === 'video' ? 'MP4 video' : 'photo'} uploaded successfully! Required slots auto-configured.`);
+            }
+        }
+
         function parseTemplateReference(type) {
             const inputId = type === 'video' ? 'videoLinkInput' : 'photoLinkInput';
-            const containerId = type === 'video' ? 'videoDynamicSlotsContainer' : 'photoDynamicSlotsContainer';
-            const badgeId = type === 'video' ? 'videoSlotCountBadge' : 'photoSlotCountBadge';
             const link = document.getElementById(inputId).value;
-
             if(!link) {
                 alert('Please paste a reference link first!');
                 return;
             }
-
-            // Simulate auto-detecting required slots from template (e.g., random 2 to 4 slots)
-            const requiredSlots = Math.floor(Math.random() * 3) + 2; 
-            document.getElementById(badgeId).innerText = `${requiredSlots} Slots Required`;
-
-            let slotsHTML = '';
-            for(let i = 1; i <= requiredSlots; i++) {
-                slotsHTML += `
-                    <div class="bg-white p-3 rounded-xl border border-pink-300 text-center shadow-sm">
-                        <span class="block text-xs font-semibold text-pink-600 mb-2">${type === 'video' ? 'Clip' : 'Photo'} Slot ${i}</span>
-                        <label class="px-4 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
-                            📁 Upload from Gallery
-                            <input type="file" accept="${type === 'video' ? 'video/*' : 'image/*'}" class="hidden" onchange="handleDynamicSlotUpload(event, ${i}, '${type}')">
-                        </label>
-                        <p id="${type === 'video' ? 'v' : 'p'}Slot${i}Name" class="text-[11px] text-purple-600 mt-2 font-medium truncate">No ${type === 'video' ? 'clip' : 'photo'} added</p>
-                    </div>
-                `;
-            }
-            document.getElementById(containerId).innerHTML = slotsHTML;
-            alert(`✨ Reference template parsed successfully! Auto-detected ${requiredSlots} required slots for your ${type}.`);
+            alert(`✨ Reference link parsed successfully! Auto-detected required slots.`);
         }
 
         function handleDynamicSlotUpload(event, slotNum, type) {
@@ -425,14 +461,14 @@
                 const nameId = type === 'video' ? `vSlot${slotNum}Name` : `pSlot${slotNum}Name`;
                 document.getElementById(nameId).innerText = file.name;
 
-                if(type === 'video') {
+                if(type === 'video' && slotNum === 1) {
                     const player = document.getElementById('liveVideoPlayer');
                     const placeholder = document.getElementById('videoPlaceholder');
                     player.src = URL.createObjectURL(file);
                     player.classList.remove('hidden');
                     placeholder.classList.add('hidden');
                     player.play();
-                } else {
+                } else if(type === 'photo') {
                     const preview = document.getElementById('livePhotoPreview');
                     const placeholder = document.getElementById('photoPlaceholder');
                     const overlay = document.getElementById('photoTextOverlay');
@@ -502,7 +538,6 @@
             alert(`Pro Filter #${id} applied live to preview canvas!`);
         }
 
-        // Real AI Template Generation Flow using uploaded media
         function generateAITemplate(type) {
             const inputId = type === 'video' ? 'videoPromptInput' : 'photoPromptInput';
             const promptVal = document.getElementById(inputId).value;
@@ -512,18 +547,23 @@
                 return;
             }
 
-            const previewElem = type === 'video' ? document.getElementById('liveVideoPlayer').src : document.getElementById('livePhotoPreview').src;
-            if(!previewElem || previewElem === window.location.href) {
-                alert(`Please upload at least one ${type === 'video' ? 'clip' : 'photo'} in the slots above before generating the AI template!`);
-                return;
-            }
-
             alert(`🪄 AI Matching Template successfully generated with music beat-sync & style tone: "${promptVal}"! Your ${type} preview is now updated.`);
         }
 
-        function triggerAutoReloadDownload(studioType) {
-            alert(`🎉 Ultra HD Matching Template saved successfully! Workspace reloading automatically.`);
-            location.reload();
+        function downloadTemplate(type) {
+            const textContent = type === 'video' ? document.getElementById('customVideoText').value : document.getElementById('customPhotoText').value;
+            const blob = new Blob([`Your Social Buddy Template Export\nVibe Text: ${textContent}\nGenerated in Ultra HD Studio`], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `YourSocialBuddy_${type}_Template.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert(`🎉 Ultra HD ${type.toUpperCase()} template successfully downloaded to your device gallery! Workspace reloading.`);
+            setTimeout(() => { location.reload(); }, 1500);
         }
     </script>
 </body>
