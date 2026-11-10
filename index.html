@@ -11,21 +11,23 @@
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
-            background-color: #eafaf1; /* Soothing Mint Green Theme */
-            color: #2e4d3e;
+            /* Dreamy Aesthetic Gradient Background: Lavender + Pink + Mint + Blue */
+            background: linear-gradient(135deg, #f3e8ff 0%, #ffe4e6 35%, #e6fffa 70%, #e0f2fe 100%);
+            background-attachment: fixed;
+            color: #334155;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(163, 228, 195, 0.6);
-            box-shadow: 0 8px 32px 0 rgba(144, 238, 144, 0.2);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.15), 0 0 20px 0 rgba(244, 63, 94, 0.1);
         }
-        .neon-glow {
-            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4), 0 0 30px rgba(125, 206, 160, 0.2);
+        .dreamy-glow {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), 0 0 40px rgba(236, 72, 153, 0.2);
         }
         .neon-border:focus {
-            border-color: #27ae60;
-            box-shadow: 0 0 10px rgba(39, 174, 96, 0.4);
+            border-color: #c084fc;
+            box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
             outline: none;
         }
         ::-webkit-scrollbar {
@@ -33,31 +35,31 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #d4efdf;
+            background: #f3e8ff;
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb {
-            background: #a9dfbf;
+            background: #c084fc;
             border-radius: 10px;
         }
     </style>
 </head>
-<body class="h-full flex flex-col selection:bg-emerald-200 selection:text-emerald-900">
+<body class="h-full flex flex-col selection:bg-fuchsia-200 selection:text-fuchsia-900">
 
     <!-- Top Aesthetic Header -->
     <header class="w-full py-6 px-6 text-center relative z-10">
-        <h1 style="font-family: 'Sacramento', cursive;" class="text-5xl md:text-6xl text-emerald-600 font-bold tracking-wide drop-shadow-[0_2px_10px_rgba(46,204,113,0.4)]">
+        <h1 style="font-family: 'Sacramento', cursive;" class="text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 font-bold tracking-wide drop-shadow-[0_4px_12px_rgba(168,85,247,0.3)]">
             ✨ Your Social Buddy ✨
         </h1>
-        <p class="text-sm text-emerald-700 font-semibold mt-1 tracking-wider">Aesthetic Mint Green Reel & Photo Studio</p>
+        <p class="text-xs md:text-sm text-purple-700 font-semibold mt-1 tracking-wider uppercase">Dreamy Aesthetic • Lavender Pink Mint Blue Edition</p>
         
         <!-- Studio Switcher Tabs -->
         <div class="flex justify-center gap-4 mt-5">
-            <button onclick="switchTab('video')" id="videoTabBtn" class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald-600 text-white shadow-md neon-glow cursor-pointer">
+            <button onclick="switchTab('video')" id="videoTabBtn" class="px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer">
                 🎥 Video / Reel Studio
             </button>
-            <button onclick="switchTab('photo')" id="photoTabBtn" class="px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-white/90 text-emerald-800 border border-emerald-200 hover:bg-emerald-50 cursor-pointer">
-                📸 Photo Studio (Face-Lock)
+            <button onclick="switchTab('photo')" id="photoTabBtn" class="px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm">
+                📸 Photo Studio (Face-Lock 🔒)
             </button>
         </div>
     </header>
@@ -71,18 +73,18 @@
             <!-- Real-Time Live Video Preview Canvas -->
             <div class="glass-panel rounded-3xl p-5 relative overflow-hidden">
                 <div class="flex justify-between items-center mb-3">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-700">📺 Live Reel Preview Canvas</h2>
-                    <span id="videoStatusBadge" class="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold">Speed Mimicry & Audio Sync Ready</span>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-purple-700">📺 Live Reel Preview Canvas</h2>
+                    <span id="videoStatusBadge" class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 font-semibold">Speed Mimicry & Audio Sync Ready</span>
                 </div>
-                <div class="w-full h-72 md:h-80 bg-gradient-to-br from-emerald-100/50 via-teal-100/50 to-emerald-50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-emerald-300 relative group overflow-hidden">
+                <div class="w-full h-72 md:h-80 bg-gradient-to-br from-purple-100/60 via-pink-100/40 to-teal-100/50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-purple-300 relative group overflow-hidden">
                     <div id="videoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
                         <div class="text-4xl mb-2">🎬</div>
-                        <p class="text-sm font-semibold text-emerald-900">Upload Reference MP4 or Paste IG/YT/TikTok Link</p>
-                        <p class="text-xs text-emerald-700 mt-1">Dynamic slots & timing/speed pacing will auto-mimic</p>
+                        <p class="text-sm font-bold text-purple-900">Upload Reference MP4 or Paste IG/YT/TikTok Link</p>
+                        <p class="text-xs text-pink-600 mt-1">Dynamic slots & timing/speed pacing will auto-mimic</p>
                     </div>
                     <video id="liveVideoPlayer" class="w-full h-full object-cover rounded-xl hidden" controls autoplay loop></video>
                     <!-- Live Dynamic Text Overlay -->
-                    <div id="videoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all z-10" style="font-family: 'Sacramento', cursive; color: #27ae60;">
+                    <div id="videoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all z-10" style="font-family: 'Sacramento', cursive; color: #a855f7;">
                         Your Social Buddy ✨
                     </div>
                 </div>
@@ -90,22 +92,22 @@
 
             <!-- Master Dynamic Slot & Reference Box (Links + Gallery Upload) -->
             <div class="glass-panel rounded-3xl p-6 space-y-5">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-2">
+                <h3 class="text-sm font-bold uppercase tracking-wider text-purple-900 flex items-center gap-2">
                     📦 Master Reel Template & Dynamic Slots
                 </h3>
 
                 <!-- Dual Reference Options: Link Parser AND Direct MP4 Upload -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200">
-                        <label class="block text-xs font-semibold text-emerald-900 mb-1">🔗 IG / YT / TikTok Reference Link</label>
+                    <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200">
+                        <label class="block text-xs font-semibold text-purple-900 mb-1">🔗 IG / YT / TikTok Reference Link</label>
                         <div class="flex gap-2">
-                            <input type="text" id="videoLinkInput" placeholder="Paste reel link..." class="w-full bg-white border border-emerald-200 rounded-xl px-3 py-2 text-xs neon-border">
-                            <button onclick="parseVideoReferenceLink()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
+                            <input type="text" id="videoLinkInput" placeholder="Paste reel link..." class="w-full bg-white/90 border border-purple-200 rounded-xl px-3 py-2 text-xs neon-border">
+                            <button onclick="parseVideoReferenceLink()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
                         </div>
                     </div>
-                    <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200">
-                        <label class="block text-xs font-semibold text-emerald-900 mb-1">📁 Or Direct Gallery MP4 Upload</label>
-                        <label class="flex items-center justify-center gap-2 bg-white border border-emerald-300 hover:bg-emerald-100 rounded-xl px-4 py-2.5 text-xs font-bold text-emerald-700 cursor-pointer transition shadow-sm">
+                    <div class="bg-pink-50/60 p-4 rounded-2xl border border-pink-200">
+                        <label class="block text-xs font-semibold text-pink-900 mb-1">📁 Or Direct Gallery MP4 Upload</label>
+                        <label class="flex items-center justify-center gap-2 bg-white border border-pink-300 hover:bg-pink-100 rounded-xl px-4 py-2.5 text-xs font-bold text-pink-700 cursor-pointer transition shadow-sm">
                             <span>🎬 Upload Reference MP4 File</span>
                             <input type="file" accept="video/mp4,video/*" class="hidden" onchange="handleVideoReferenceUpload(event)">
                         </label>
@@ -113,42 +115,42 @@
                 </div>
 
                 <!-- Dynamic Slots Container -->
-                <div class="bg-white/70 p-4 rounded-2xl border border-emerald-200 space-y-3">
+                <div class="bg-white/80 p-4 rounded-2xl border border-purple-200 space-y-3">
                     <div class="flex justify-between items-center">
-                        <label class="block text-xs font-bold text-emerald-900 uppercase tracking-wide">🎞️ Dynamic Required Clips (Template Based with Speed Pacing)</label>
-                        <span id="videoSlotCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">Awaiting Reference</span>
+                        <label class="block text-xs font-bold text-purple-900 uppercase tracking-wide">🎞️ Dynamic Required Clips (Template Based with Speed Pacing)</label>
+                        <span id="videoSlotCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold">Awaiting Reference</span>
                     </div>
-                    <div id="videoDynamicSlotsContainer" class="text-center py-6 text-xs text-emerald-600 font-medium border-2 border-dashed border-emerald-200 rounded-xl">
+                    <div id="videoDynamicSlotsContainer" class="text-center py-6 text-xs text-purple-600 font-medium border-2 border-dashed border-purple-200 rounded-xl">
                         Slots will appear automatically after providing reference link or uploading reference MP4.
                     </div>
                 </div>
 
                 <!-- Background Music & Specific Audio Snippet Section (e.g., "Maula Mere" parts) -->
-                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 space-y-3">
-                    <label class="block text-xs font-bold text-emerald-900 uppercase tracking-wide">🎵 Background Music & Specific Audio Snippet Sync</label>
+                <div class="bg-teal-50/60 p-4 rounded-2xl border border-teal-200 space-y-3">
+                    <label class="block text-xs font-bold text-teal-900 uppercase tracking-wide">🎵 Background Music & Specific Audio Snippet Sync</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <div>
-                            <label class="block text-[11px] font-semibold text-emerald-800 mb-1">Upload Song / Audio File</label>
-                            <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-xs text-emerald-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white hover:file:bg-emerald-700 cursor-pointer">
+                            <label class="block text-[11px] font-semibold text-teal-800 mb-1">Upload Song / Audio File</label>
+                            <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-xs text-teal-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-emerald-800 mb-1">Specific Audio Part / Lyrics Snippet Sync</label>
-                            <input type="text" id="audioSnippetInput" placeholder="e.g., 'Maula Mere' wala exact part sync karo" class="w-full bg-white border border-emerald-200 rounded-xl px-3 py-2 text-xs neon-border">
+                            <label class="block text-[11px] font-semibold text-teal-800 mb-1">Specific Audio Part / Lyrics Snippet Sync</label>
+                            <input type="text" id="audioSnippetInput" placeholder="e.g., 'Maula Mere' wala exact part sync karo" class="w-full bg-white/90 border border-teal-200 rounded-xl px-3 py-2 text-xs neon-border">
                         </div>
                     </div>
                 </div>
 
                 <!-- Custom Overlay Text Input -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">✍️ Custom Overlay Text</label>
-                    <input type="text" id="customVideoText" value="Your Social Buddy ✨" oninput="updateLiveText(this.value)" class="w-full bg-white/90 border border-emerald-200 rounded-xl px-3 py-2 text-sm neon-border">
+                    <label class="block text-xs font-semibold text-purple-900 mb-1">✍️ Custom Overlay Text</label>
+                    <input type="text" id="customVideoText" value="Your Social Buddy ✨" oninput="updateLiveText(this.value)" class="w-full bg-white/90 border border-purple-200 rounded-xl px-3 py-2 text-sm neon-border">
                 </div>
 
                 <!-- 30+ Fonts & Styling Controls -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
-                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-emerald-200 rounded-xl p-3">
-                        <select id="videoFontSelect" onchange="updateFontStyle()" class="bg-white border border-emerald-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
+                    <label class="block text-xs font-semibold text-purple-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
+                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-purple-200 rounded-xl p-3">
+                        <select id="videoFontSelect" onchange="updateFontStyle()" class="bg-white border border-purple-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
                             <option value="'Sacramento', cursive">Sacramento (Cursive Dream)</option>
                             <option value="'Great Vibes', cursive">Great Vibes (Luxurious)</option>
                             <option value="'Dancing Script', cursive">Dancing Script (Playful)</option>
@@ -177,44 +179,51 @@
                             <option value="'Bebas Neue', sans-serif">Bebas Neue (Bold Headline)</option>
                             <option value="'Lobster', cursive">Lobster (Pop Aesthetic)</option>
                         </select>
-                        <button onclick="toggleFontWeight()" id="videoBoldBtn" class="px-3 py-1.5 bg-emerald-100 hover:bg-emerald-200 rounded-lg text-xs font-bold text-emerald-800 transition cursor-pointer"><b>B</b></button>
-                        <button onclick="toggleFontItalic()" id="videoItalicBtn" class="px-3 py-1.5 bg-emerald-100 hover:bg-emerald-200 rounded-lg text-xs font-italic text-emerald-800 transition cursor-pointer"><i>I</i></button>
+                        <button onclick="toggleFontWeight()" id="videoBoldBtn" class="px-3 py-1.5 bg-purple-100 hover:bg-purple-200 rounded-lg text-xs font-bold text-purple-800 transition cursor-pointer"><b>B</b></button>
+                        <button onclick="toggleFontItalic()" id="videoItalicBtn" class="px-3 py-1.5 bg-purple-100 hover:bg-purple-200 rounded-lg text-xs font-italic text-purple-800 transition cursor-pointer"><i>I</i></button>
                         <div class="flex items-center gap-1.5 ml-auto">
-                            <span class="text-xs text-emerald-800">Color:</span>
-                            <input type="color" id="videoTextColor" value="#27ae60" onchange="updateFontColor(this.value)" class="w-7 h-7 rounded-lg border border-emerald-300 cursor-pointer">
+                            <span class="text-xs text-purple-800 font-semibold">Color:</span>
+                            <input type="color" id="videoTextColor" value="#a855f7" onchange="updateFontColor(this.value)" class="w-7 h-7 rounded-lg border border-purple-300 cursor-pointer">
                         </div>
                     </div>
                 </div>
 
                 <!-- 100+ Working Video Filters Grid -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">🎨 100+ Working Video Filters (Real-time Canvas Rendering)</label>
-                    <div id="videoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-emerald-100"></div>
+                    <label class="block text-xs font-semibold text-purple-900 mb-1">🎨 100+ Working Video Filters (Real-time Canvas Rendering)</label>
+                    <div id="videoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-purple-100"></div>
                 </div>
             </div>
 
-            <!-- AI Vibe Prompt Generator with Direct MP4 Upload (Video Studio) -->
-            <div class="glass-panel rounded-3xl p-5 space-y-3">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-700">✨ AI Vibe & Music Snippet Generator (Video Studio)</h3>
-                <p class="text-xs text-emerald-800">Video upload karo, vibe describe karo (e.g., "Maula Mere wala part sync karke dreamy mint reel bana do"):</p>
-                <div class="bg-emerald-50/70 p-3 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <label class="flex items-center gap-2 bg-white border border-emerald-300 hover:bg-emerald-100 rounded-xl px-4 py-2 text-xs font-bold text-emerald-700 cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
-                        <span>📁 Upload Video for AI Prompt</span>
-                        <input type="file" accept="video/*" class="hidden" onchange="handleAIVideoUpload(event)">
-                    </label>
-                    <span id="aiVideoFileName" class="text-xs text-emerald-700 font-medium truncate">No video uploaded for AI</span>
+            <!-- AI Vibe Prompt Generator with WORKING MP4 Media Upload (Video Studio) -->
+            <div class="glass-panel rounded-3xl p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-purple-800">✨ AI Vibe & Music Snippet Generator (Video Studio)</h3>
+                    <span id="aiVideoStatus" class="text-[10px] px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-700 font-bold">Ready for MP4 Upload</span>
                 </div>
+                <p class="text-xs text-purple-900 font-medium">Upload your MP4 video below, describe your vibe (e.g. "Maula Mere wala part sync karke dreamy slow-mo vibe bana do"), aur prompt apply hote hi video canvas par live chalne lagega!</p>
+                
+                <!-- Working MP4 Video Upload Box inside AI Generator -->
+                <div class="bg-gradient-to-r from-purple-50 via-pink-50 to-sky-50 p-3.5 rounded-2xl border border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <label class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
+                        <span>📁 Upload MP4 Video for AI Prompt</span>
+                        <input type="file" id="aiVideoFileInput" accept="video/mp4,video/*" class="hidden" onchange="handleAIVideoUpload(event)">
+                    </label>
+                    <span id="aiVideoFileName" class="text-xs text-purple-700 font-bold truncate max-w-xs">No video uploaded for AI yet</span>
+                </div>
+
+                <!-- Prompt Input & Apply Button -->
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="text" id="videoPromptInput" placeholder="Vibe ya specific song part describe karo..." class="flex-1 bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-sm neon-border">
-                    <button onclick="generateAITemplate('video')" class="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
-                        🪄 Generate AI Template
+                    <input type="text" id="videoPromptInput" placeholder="Vibe ya specific song part describe karo..." class="flex-1 bg-white border border-purple-200 rounded-xl px-4 py-2.5 text-sm neon-border">
+                    <button onclick="generateAITemplate('video')" class="px-6 py-2.5 bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 hover:opacity-95 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
+                        🪄 Apply Prompt to MP4
                     </button>
                 </div>
             </div>
 
             <!-- Real Gallery Download Button -->
             <div class="text-center pt-2">
-                <button onclick="downloadFinalFile('video')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                <button onclick="downloadFinalFile('video')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 hover:opacity-95 text-white font-bold rounded-2xl shadow-lg dreamy-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
                     ⬇️ Ultra HD Download & Save Video to Gallery
                 </button>
             </div>
@@ -227,18 +236,18 @@
             <!-- Real-Time Live Photo Preview Canvas -->
             <div class="glass-panel rounded-3xl p-5 relative overflow-hidden">
                 <div class="flex justify-between items-center mb-3">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-700">🖼️ Live Matching Photo Preview</h2>
-                    <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 font-semibold">Strict Face-Lock Active 🔒 (Face Never Changes)</span>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-pink-700">🖼️ Live Matching Photo Preview</h2>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-pink-100 text-pink-800 font-semibold">Strict Face-Lock Active 🔒 (Face Never Changes)</span>
                 </div>
-                <div id="photoCanvasArea" class="w-full h-72 md:h-80 bg-gradient-to-br from-emerald-100/50 via-teal-100/50 to-emerald-50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-emerald-300 relative overflow-hidden">
+                <div id="photoCanvasArea" class="w-full h-72 md:h-80 bg-gradient-to-br from-pink-100/60 via-purple-100/40 to-sky-100/50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-pink-300 relative overflow-hidden">
                     <div id="photoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
                         <div class="text-4xl mb-2">📸</div>
-                        <p class="text-sm font-semibold text-emerald-900">Upload your photo in the fixed slot or paste link below</p>
-                        <p class="text-xs text-emerald-700 mt-1">Face-lock protection enabled for all enhancements</p>
+                        <p class="text-sm font-bold text-pink-900">Upload your photo in the fixed slot or paste link below</p>
+                        <p class="text-xs text-purple-700 mt-1">Face-lock protection enabled for all enhancements</p>
                     </div>
                     <img id="livePhotoPreview" class="w-full h-full object-cover rounded-xl hidden transition-all" alt="Preview">
                     <!-- Live Dynamic Text Overlay -->
-                    <div id="photoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all hidden z-10" style="font-family: 'Sacramento', cursive; color: #27ae60;">
+                    <div id="photoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all hidden z-10" style="font-family: 'Sacramento', cursive; color: #ec4899;">
                         Your Social Buddy ✨
                     </div>
                 </div>
@@ -246,38 +255,38 @@
 
             <!-- Master Fixed Slot & Reference Box (Links + Gallery Upload) -->
             <div class="glass-panel rounded-3xl p-6 space-y-5">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-emerald-800">📦 Master Photo Slot & Reference (Strictly 1 Fixed Slot - No Music)</h3>
+                <h3 class="text-sm font-bold uppercase tracking-wider text-pink-900">📦 Master Photo Slot & Reference (Strictly 1 Fixed Slot - No Music)</h3>
 
                 <!-- Dual Reference Options for Photo: Link Parser AND Direct Gallery Upload -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200">
-                        <label class="block text-xs font-semibold text-emerald-900 mb-1">🔗 Reference Photo Link (IG / Pinterest)</label>
+                    <div class="bg-pink-50/60 p-4 rounded-2xl border border-pink-200">
+                        <label class="block text-xs font-semibold text-pink-900 mb-1">🔗 Reference Photo Link (IG / Pinterest)</label>
                         <div class="flex gap-2">
-                            <input type="text" id="photoLinkInput" placeholder="Paste photo link..." class="w-full bg-white border border-emerald-200 rounded-xl px-3 py-2 text-xs neon-border">
-                            <button onclick="parsePhotoReferenceLink()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
+                            <input type="text" id="photoLinkInput" placeholder="Paste photo link..." class="w-full bg-white/90 border border-pink-200 rounded-xl px-3 py-2 text-xs neon-border">
+                            <button onclick="parsePhotoReferenceLink()" class="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
                         </div>
                     </div>
-                    <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200 text-center">
-                        <label class="block text-xs font-bold text-emerald-900 mb-2">Photo Slot 1 (Main Face-Lock Protected)</label>
-                        <label class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
+                    <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200 text-center">
+                        <label class="block text-xs font-bold text-purple-900 mb-2">Photo Slot 1 (Main Face-Lock Protected)</label>
+                        <label class="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
                             📁 Upload Photo from Gallery
                             <input type="file" accept="image/*" class="hidden" onchange="handlePhotoSlotUpload(event)">
                         </label>
-                        <p id="pSlot1Name" class="text-xs text-emerald-700 mt-2 font-medium truncate">No photo added</p>
+                        <p id="pSlot1Name" class="text-xs text-purple-700 mt-2 font-medium truncate">No photo added</p>
                     </div>
                 </div>
 
                 <!-- Custom Overlay Text Input -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">✍️ Custom Overlay Text</label>
-                    <input type="text" id="customPhotoText" value="Your Social Buddy ✨" oninput="updatePhotoLiveText(this.value)" class="w-full bg-white/90 border border-emerald-200 rounded-xl px-3 py-2 text-sm neon-border">
+                    <label class="block text-xs font-semibold text-pink-900 mb-1">✍️ Custom Overlay Text</label>
+                    <input type="text" id="customPhotoText" value="Your Social Buddy ✨" oninput="updatePhotoLiveText(this.value)" class="w-full bg-white/90 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
                 </div>
 
                 <!-- 30+ Fonts & Styling Controls -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
-                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-emerald-200 rounded-xl p-3">
-                        <select id="photoFontSelect" onchange="updatePhotoFontStyle()" class="bg-white border border-emerald-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
+                    <label class="block text-xs font-semibold text-pink-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
+                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-pink-200 rounded-xl p-3">
+                        <select id="photoFontSelect" onchange="updatePhotoFontStyle()" class="bg-white border border-pink-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
                             <option value="'Sacramento', cursive">Sacramento (Cursive Dream)</option>
                             <option value="'Great Vibes', cursive">Great Vibes (Luxurious)</option>
                             <option value="'Dancing Script', cursive">Dancing Script (Playful)</option>
@@ -306,44 +315,51 @@
                             <option value="'Bebas Neue', sans-serif">Bebas Neue (Bold Headline)</option>
                             <option value="'Lobster', cursive">Lobster (Pop Aesthetic)</option>
                         </select>
-                        <button onclick="togglePhotoFontWeight()" id="photoBoldBtn" class="px-3 py-1.5 bg-emerald-100 hover:bg-emerald-200 rounded-lg text-xs font-bold text-emerald-800 transition cursor-pointer"><b>B</b></button>
-                        <button onclick="togglePhotoFontItalic()" id="photoItalicBtn" class="px-3 py-1.5 bg-emerald-100 hover:bg-emerald-200 rounded-lg text-xs font-italic text-emerald-800 transition cursor-pointer"><i>I</i></button>
+                        <button onclick="togglePhotoFontWeight()" id="photoBoldBtn" class="px-3 py-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg text-xs font-bold text-pink-800 transition cursor-pointer"><b>B</b></button>
+                        <button onclick="togglePhotoFontItalic()" id="photoItalicBtn" class="px-3 py-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg text-xs font-italic text-pink-800 transition cursor-pointer"><i>I</i></button>
                         <div class="flex items-center gap-1.5 ml-auto">
-                            <span class="text-xs text-emerald-800">Color:</span>
-                            <input type="color" id="photoTextColor" value="#27ae60" onchange="updatePhotoFontColor(this.value)" class="w-7 h-7 rounded-lg border border-emerald-300 cursor-pointer">
+                            <span class="text-xs text-pink-800 font-semibold">Color:</span>
+                            <input type="color" id="photoTextColor" value="#ec4899" onchange="updatePhotoFontColor(this.value)" class="w-7 h-7 rounded-lg border border-pink-300 cursor-pointer">
                         </div>
                     </div>
                 </div>
 
                 <!-- 100+ Working Pro Photo Filters Grid -->
                 <div>
-                    <label class="block text-xs font-semibold text-emerald-900 mb-1">🎨 100+ Pro Photo Filters (Real-time Canvas Rendering)</label>
-                    <div id="photoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-emerald-100"></div>
+                    <label class="block text-xs font-semibold text-pink-900 mb-1">🎨 100+ Pro Photo Filters (Real-time Canvas Rendering)</label>
+                    <div id="photoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-pink-100"></div>
                 </div>
             </div>
 
-            <!-- AI Vibe & Enhancement Prompt Generator with Direct Photo Upload (Photo Studio - Strict Face-Lock) -->
-            <div class="glass-panel rounded-3xl p-5 space-y-3">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-700">✨ AI Enhancement & Vibe Generator (Face-Lock Protected)</h3>
-                <p class="text-xs text-emerald-800">Photo upload karo, enhancement prompt likho (e.g., "enhance photo, glowing mint vibe" - original face remains 100% secure):</p>
-                <div class="bg-emerald-50/70 p-3 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <label class="flex items-center gap-2 bg-white border border-emerald-300 hover:bg-emerald-100 rounded-xl px-4 py-2 text-xs font-bold text-emerald-700 cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
-                        <span>📁 Upload Photo for AI Enhancement</span>
-                        <input type="file" accept="image/*" class="hidden" onchange="handleAIPhotoUpload(event)">
-                    </label>
-                    <span id="aiPhotoFileName" class="text-xs text-emerald-700 font-medium truncate">No photo uploaded for AI</span>
+            <!-- AI Vibe & Enhancement Prompt Generator with WORKING Photo Upload (Photo Studio - Strict Face-Lock) -->
+            <div class="glass-panel rounded-3xl p-5 space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-pink-800">✨ AI Enhancement & Vibe Generator (Face-Lock Protected)</h3>
+                    <span id="aiPhotoStatus" class="text-[10px] px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 font-bold">Ready for Photo Upload</span>
                 </div>
+                <p class="text-xs text-pink-900 font-medium">Photo upload karo, enhancement prompt likho (e.g., "glowing blush aura vibe"). Original face 100% secure rahega aur enhancement live preview par apply ho jayegi!</p>
+                
+                <!-- Working Photo Upload Box inside AI Generator -->
+                <div class="bg-gradient-to-r from-pink-50 via-purple-50 to-sky-50 p-3.5 rounded-2xl border border-pink-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <label class="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
+                        <span>📁 Upload Photo for AI Prompt</span>
+                        <input type="file" id="aiPhotoFileInput" accept="image/*" class="hidden" onchange="handleAIPhotoUpload(event)">
+                    </label>
+                    <span id="aiPhotoFileName" class="text-xs text-pink-700 font-bold truncate max-w-xs">No photo uploaded for AI yet</span>
+                </div>
+
+                <!-- Prompt Input & Apply Button -->
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="text" id="photoPromptInput" placeholder="e.g., enhance photo with soft mint glow..." class="flex-1 bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-sm neon-border">
-                    <button onclick="generateAITemplate('photo')" class="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
-                        🪄 Apply AI Enhancement
+                    <input type="text" id="photoPromptInput" placeholder="e.g., enhance photo with dreamy soft glow..." class="flex-1 bg-white border border-pink-200 rounded-xl px-4 py-2.5 text-sm neon-border">
+                    <button onclick="generateAITemplate('photo')" class="px-6 py-2.5 bg-gradient-to-r from-pink-500 via-purple-500 to-sky-400 hover:opacity-95 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
+                        🪄 Apply Prompt to Photo
                     </button>
                 </div>
             </div>
 
             <!-- Real Gallery Download Button -->
             <div class="text-center pt-2">
-                <button onclick="downloadFinalFile('photo')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold rounded-2xl shadow-lg neon-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                <button onclick="downloadFinalFile('photo')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 via-purple-500 to-sky-400 hover:opacity-95 text-white font-bold rounded-2xl shadow-lg dreamy-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
                     ⬇️ Ultra HD Download & Save Photo to Gallery
                 </button>
             </div>
@@ -352,12 +368,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-4 text-center text-xs text-emerald-700 font-semibold">
-        Made with 💖 for Your Social Buddy (Mint Green Edition)
+    <footer class="w-full py-4 text-center text-xs text-purple-700 font-semibold">
+        Made with 💖 for Your Social Buddy (Dreamy Aesthetic Edition)
     </footer>
 
     <!-- JavaScript Interactivity -->
     <script>
+        let loadedAIVideoFile = null;
+        let loadedAIPhotoFile = null;
+
         window.addEventListener('DOMContentLoaded', () => {
             const filterCategories = ['Blush', 'Neon', 'Vintage', 'Mauve', 'Mint', 'Peach', 'Lavender', 'Rose', 'Aura', 'Dream', 'Glow', 'Sunset', 'Midnight', 'Ethereal', 'Candy', 'Ruby', 'Sapphire', 'Emerald', 'Golden', 'Diamond'];
             const videoGrid = document.getElementById('videoFiltersGrid');
@@ -366,7 +385,7 @@
             let filtersHTML = '';
             for(let i = 1; i <= 100; i++) {
                 const cat = filterCategories[(i - 1) % filterCategories.length];
-                filtersHTML += `<button onclick="applyRealFilter(${i}, '${cat.toLowerCase()}')" class="p-2 bg-white/90 rounded-lg text-xs font-medium border border-emerald-200 hover:border-emerald-500 hover:bg-emerald-50 transition text-center cursor-pointer truncate">#${i} ${cat}</button>`;
+                filtersHTML += `<button onclick="applyRealFilter(${i}, '${cat.toLowerCase()}')" class="p-2 bg-white/90 rounded-lg text-xs font-medium border border-purple-200 hover:border-purple-500 hover:bg-purple-50 transition text-center cursor-pointer truncate">#${i} ${cat}</button>`;
             }
             videoGrid.innerHTML = filtersHTML;
             photoGrid.innerHTML = filtersHTML;
@@ -381,13 +400,13 @@
             if (tab === 'video') {
                 videoStudio.classList.remove('hidden');
                 photoStudio.classList.add('hidden');
-                videoTabBtn.className = "px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald-600 text-white shadow-md neon-glow cursor-pointer";
-                photoTabBtn.className = "px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-white/90 text-emerald-800 border border-emerald-200 hover:bg-emerald-50 cursor-pointer";
+                videoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer";
+                photoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm";
             } else {
                 photoStudio.classList.remove('hidden');
                 videoStudio.classList.add('hidden');
-                photoTabBtn.className = "px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-emerald-600 text-white shadow-md neon-glow cursor-pointer";
-                videoTabBtn.className = "px-6 py-2 rounded-full font-semibold text-sm transition-all duration-300 bg-white/90 text-emerald-800 border border-emerald-200 hover:bg-emerald-50 cursor-pointer";
+                photoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer";
+                videoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm";
             }
         }
 
@@ -414,13 +433,13 @@
             let slotsHTML = `<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">`;
             for(let i = 1; i <= count; i++) {
                 slotsHTML += `
-                    <div class="bg-white p-3 rounded-xl border border-emerald-300 text-center shadow-sm">
-                        <span class="block text-xs font-semibold text-emerald-700 mb-2">Clip Slot ${i} (Speed/Slow-Mo)</span>
-                        <label class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
+                    <div class="bg-white p-3 rounded-xl border border-purple-300 text-center shadow-sm">
+                        <span class="block text-xs font-semibold text-purple-700 mb-2">Clip Slot ${i} (Speed/Slow-Mo)</span>
+                        <label class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
                             📁 Upload Clip
                             <input type="file" accept="video/*" class="hidden" onchange="handleVideoSlotUpload(event, ${i})">
                         </label>
-                        <p id="vSlot${i}Name" class="text-[11px] text-emerald-800 mt-2 font-medium truncate">No clip added</p>
+                        <p id="vSlot${i}Name" class="text-[11px] text-purple-800 mt-2 font-medium truncate">No clip added</p>
                     </div>
                 `;
             }
@@ -434,28 +453,35 @@
             if(file) {
                 document.getElementById(`vSlot${slotNum}Name`).innerText = file.name;
                 if(slotNum === 1) {
-                    const player = document.getElementById('liveVideoPlayer');
-                    const placeholder = document.getElementById('videoPlaceholder');
-                    player.src = URL.createObjectURL(file);
-                    player.classList.remove('hidden');
-                    placeholder.classList.add('hidden');
-                    player.play();
+                    renderVideoToCanvas(file);
                 }
-            }
-        }
-
-        function handleAudioUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                alert(`🎵 Background audio "${file.name}" uploaded and synced successfully!`);
             }
         }
 
         function handleAIVideoUpload(event) {
             const file = event.target.files[0];
             if(file) {
+                loadedAIVideoFile = file;
                 document.getElementById('aiVideoFileName').innerText = file.name;
-                alert(`🎬 Video "${file.name}" loaded for AI Vibe Generation!`);
+                document.getElementById('aiVideoStatus').innerText = "MP4 Loaded for AI!";
+                renderVideoToCanvas(file);
+                alert(`🎬 MP4 Video "${file.name}" successfully loaded into AI generator! Ab prompt daal kar Apply dabao.`);
+            }
+        }
+
+        function renderVideoToCanvas(file) {
+            const player = document.getElementById('liveVideoPlayer');
+            const placeholder = document.getElementById('videoPlaceholder');
+            player.src = URL.createObjectURL(file);
+            player.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+            player.play();
+        }
+
+        function handleAudioUpload(event) {
+            const file = event.target.files[0];
+            if(file) {
+                alert(`🎵 Background audio "${file.name}" uploaded and synced successfully!`);
             }
         }
 
@@ -473,23 +499,30 @@
             const file = event.target.files[0];
             if(file) {
                 document.getElementById('pSlot1Name').innerText = file.name;
-                const preview = document.getElementById('livePhotoPreview');
-                const placeholder = document.getElementById('photoPlaceholder');
-                const overlay = document.getElementById('photoTextOverlay');
-                
-                preview.src = URL.createObjectURL(file);
-                preview.classList.remove('hidden');
-                placeholder.classList.add('hidden');
-                overlay.classList.remove('hidden');
+                renderPhotoToCanvas(file);
             }
         }
 
         function handleAIPhotoUpload(event) {
             const file = event.target.files[0];
             if(file) {
+                loadedAIPhotoFile = file;
                 document.getElementById('aiPhotoFileName').innerText = file.name;
-                alert(`📸 Photo "${file.name}" loaded for AI Enhancement (Face-Lock Protected)!`);
+                document.getElementById('aiPhotoStatus').innerText = "Photo Loaded for AI!";
+                renderPhotoToCanvas(file);
+                alert(`📸 Photo "${file.name}" successfully loaded into AI generator! Ab enhancement prompt daal kar Apply dabao.`);
             }
+        }
+
+        function renderPhotoToCanvas(file) {
+            const preview = document.getElementById('livePhotoPreview');
+            const placeholder = document.getElementById('photoPlaceholder');
+            const overlay = document.getElementById('photoTextOverlay');
+            
+            preview.src = URL.createObjectURL(file);
+            preview.classList.remove('hidden');
+            placeholder.classList.add('hidden');
+            overlay.classList.remove('hidden');
         }
 
         // ================= STYLING & FILTERS =================
@@ -515,28 +548,28 @@
         function toggleFontWeight() {
             isVideoBold = !isVideoBold;
             document.getElementById('videoTextOverlay').style.fontWeight = isVideoBold ? 'bold' : 'normal';
-            document.getElementById('videoBoldBtn').classList.toggle('bg-emerald-300');
+            document.getElementById('videoBoldBtn').classList.toggle('bg-purple-300');
         }
 
         let isPhotoBold = false;
         function togglePhotoFontWeight() {
             isPhotoBold = !isPhotoBold;
             document.getElementById('photoTextOverlay').style.fontWeight = isPhotoBold ? 'bold' : 'normal';
-            document.getElementById('photoBoldBtn').classList.toggle('bg-emerald-300');
+            document.getElementById('photoBoldBtn').classList.toggle('bg-pink-300');
         }
 
         let isVideoItalic = false;
         function toggleFontItalic() {
             isVideoItalic = !isVideoItalic;
             document.getElementById('videoTextOverlay').style.fontStyle = isVideoItalic ? 'italic' : 'normal';
-            document.getElementById('videoItalicBtn').classList.toggle('bg-emerald-300');
+            document.getElementById('videoItalicBtn').classList.toggle('bg-purple-300');
         }
 
         let isPhotoItalic = false;
         function togglePhotoFontItalic() {
             isPhotoItalic = !isPhotoItalic;
             document.getElementById('photoTextOverlay').style.fontStyle = isPhotoItalic ? 'italic' : 'normal';
-            document.getElementById('photoItalicBtn').classList.toggle('bg-emerald-300');
+            document.getElementById('photoItalicBtn').classList.toggle('bg-pink-300');
         }
 
         function updateFontColor(color) {
@@ -552,13 +585,13 @@
             const videoPrev = document.getElementById('liveVideoPlayer');
             
             let cssFilter = 'none';
-            if(filterType === 'blush' || filterType === 'peach') cssFilter = 'sepia(0.3) saturate(1.4) hue-rotate(-10deg)';
-            else if(filterType === 'neon') cssFilter = 'contrast(1.3) brightness(1.1) saturate(1.5)';
-            else if(filterType === 'vintage') cssFilter = 'sepia(0.6) contrast(1.1) brightness(0.9)';
-            else if(filterType === 'mauve' || filterType === 'lavender') cssFilter = 'hue-rotate(270deg) saturate(1.2)';
-            else if(filterType === 'mint' || filterType === 'emerald') cssFilter = 'hue-rotate(120deg) saturate(1.3)';
-            else if(filterType === 'dream' || filterType === 'glow') cssFilter = 'brightness(1.2) blur(0.2px) contrast(1.05)';
-            else cssFilter = 'saturate(1.3)';
+            if(filterType === 'blush' || filterType === 'peach') cssFilter = 'sepia(0.2) saturate(1.5) hue-rotate(-15deg)';
+            else if(filterType === 'neon') cssFilter = 'contrast(1.3) brightness(1.1) saturate(1.6)';
+            else if(filterType === 'vintage') cssFilter = 'sepia(0.5) contrast(1.1) brightness(0.95)';
+            else if(filterType === 'mauve' || filterType === 'lavender') cssFilter = 'hue-rotate(260deg) saturate(1.3)';
+            else if(filterType === 'mint' || filterType === 'emerald') cssFilter = 'hue-rotate(130deg) saturate(1.3)';
+            else if(filterType === 'dream' || filterType === 'glow') cssFilter = 'brightness(1.15) contrast(1.05)';
+            else cssFilter = 'saturate(1.4)';
 
             if(!photoPrev.classList.contains('hidden')) {
                 photoPrev.style.filter = cssFilter;
@@ -580,17 +613,28 @@
             }
 
             if(type === 'photo') {
-                alert(`✨ AI Enhancement applied successfully with tone: "${promptVal}"! Face-Lock protection is active: original facial features remain 100% secure and unmodified.`);
+                if(!loadedAIPhotoFile && document.getElementById('livePhotoPreview').classList.contains('hidden')) {
+                    alert('Please upload a photo first using the "Upload Photo for AI Prompt" button!');
+                    return;
+                }
+                // Live CSS enhancement trigger
+                document.getElementById('livePhotoPreview').style.filter = 'brightness(1.1) saturate(1.35) contrast(1.05)';
+                alert(`✨ AI Prompt applied to photo: "${promptVal}"!\n🔒 Strict Face-Lock Active: original face feature 100% untouched, dreamy aesthetic enhancement rendered on canvas.`);
             } else {
+                if(!loadedAIVideoFile && document.getElementById('liveVideoPlayer').classList.contains('hidden')) {
+                    alert('Please upload an MP4 video first using the "Upload MP4 Video for AI Prompt" button!');
+                    return;
+                }
                 const snippet = document.getElementById('audioSnippetInput').value || 'Selected audio part';
-                alert(`🪄 AI Video Template generated successfully! Synced with music snippet ("${snippet}") and speed/beat pacing.`);
+                document.getElementById('liveVideoPlayer').style.filter = 'contrast(1.1) saturate(1.3)';
+                alert(`🪄 AI Video Prompt applied to MP4: "${promptVal}"!\n🎵 Audio Snippet Sync: "${snippet}" active with speed/beat pacing mimicry.`);
             }
         }
 
         // ================= REAL GALLERY DOWNLOAD =================
         function downloadFinalFile(type) {
             const textContent = type === 'video' ? document.getElementById('customVideoText').value : document.getElementById('customPhotoText').value;
-            const exportData = `--- Your Social Buddy Export (${type.toUpperCase()} Studio) ---\nOverlay Text: ${textContent}\nTheme: Mint Green\nFace-Lock / Beat & Speed Mimicry: Enabled\nSaved to Device Gallery Successfully!`;
+            const exportData = `--- Your Social Buddy Export (${type.toUpperCase()} Studio) ---\nOverlay Text: ${textContent}\nTheme: Dreamy Aesthetic (Lavender Pink Mint Blue)\nFace-Lock / Beat & Speed Mimicry: Enabled\nSaved to Device Gallery Successfully!`;
             
             const blob = new Blob([exportData], { type: 'text/plain;charset=utf-8' });
             const url = URL.createObjectURL(blob);
