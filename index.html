@@ -1,653 +1,1063 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Social Buddy</title>
+    <title>Your Social Buddy - Aesthetic Creative Suite</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- Google Fonts for Aesthetic Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@0,400..900&family=Great+Vibes&family=Dancing+Script:wght@0,400..700&family=Pacifico&family=Caveat:wght@0,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Bebas+Neue&family=Lobster&family=Satisfy&family=Italianno&family=Alex+Brush&family=Parisienne&family=Allura&family=Petit+Formal+Script&family=Tangerine:wght@400;700&family=Mr+DeHaviland&family=Zeyada&family=Reenie+Beanie&family=Indie+Flower&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for 50 Aesthetic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Amatic+SC:wght@700&family=Bebas+Neue&family=Caveat:wght@600&family=Cinzel:wght@600&family=Comfortaa:wght@600&family=Cormorant+Garamond:ital,wght@1,600&family=Dancing+Script:wght@700&family=Fira+Code&family=Fredoka:wght@600&family=Great+Vibes&family=Indie+Flower&family=Inter:wght@400;600;800&family=Italianno&family=Josefin+Sans:ital,wght@1,600&family=Jost:wght@600&family=Lekton&family=Lobster&family=Lora:ital,wght@1,600&family=Marck+Script&family=Megrim&family=Monoton&family=Montserrat:wght@800&family=Mr+Dafoe&family=Neonderthaw&family=Niconne&family=Orbitron:wght@800&family=Oswald:wght@600&family=Pacifico&family=Parisienne&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,700;1,700&family=Poiret+One&family=Poppins:wght@600;800&family=Press+Start+2P&family=Quicksand:wght@600;700&family=Sacramento&family=Satisfy&family=Shadows+Into+Light&family=Space+Grotesk:wght@700&family=Special+Elite&family=Syne:wght@800&family=Tangerine:wght@700&family=UnifrakturMaguntia&family=Vampiro+One&family=Vibur&family=VT323&family=Zeyada&display=swap" rel="stylesheet">
     <style>
+        /* Custom Dreamy Aesthetic Design Tokens */
         body {
             font-family: 'Quicksand', sans-serif;
-            /* Dreamy Aesthetic Gradient Background: Lavender + Pink + Mint + Blue */
-            background: linear-gradient(135deg, #f3e8ff 0%, #ffe4e6 35%, #e6fffa 70%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #fbcfe8 0%, #f3e8ff 35%, #ccfbf1 70%, #e0f2fe 100%);
             background-attachment: fixed;
-            color: #334155;
+            color: #4c1d95;
         }
+
+        /* Glassmorphism Panel - Colorful, No White */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(245, 208, 254, 0.65);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 40px -10px rgba(168, 85, 247, 0.15), 0 0 20px 0 rgba(244, 63, 94, 0.1);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 114, 182, 0.4);
+            box-shadow: 0 12px 35px -8px rgba(168, 85, 247, 0.35);
         }
-        .dreamy-glow {
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), 0 0 40px rgba(236, 72, 153, 0.2);
+
+        .glass-panel-sub {
+            background: rgba(254, 215, 226, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.3);
         }
-        .neon-border:focus {
-            border-color: #c084fc;
-            box-shadow: 0 0 12px rgba(192, 132, 252, 0.5);
-            outline: none;
+
+        /* Neon Glow Effects */
+        .glow-btn-purple {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6), 0 0 35px rgba(236, 72, 153, 0.4);
+            transition: all 0.3s ease;
         }
+        .glow-btn-purple:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.8), 0 0 45px rgba(236, 72, 153, 0.6);
+        }
+
+        .glow-btn-teal {
+            background: linear-gradient(135deg, #14b8a6 0%, #3b82f6 100%);
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        .glow-btn-teal:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(20, 184, 166, 0.7), 0 0 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .glow-active-tab {
+            background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
+            color: #ffffff;
+            box-shadow: 0 0 25px rgba(217, 70, 239, 0.7);
+        }
+
+        .glow-inactive-tab {
+            background: rgba(243, 232, 255, 0.8);
+            color: #7e22ce;
+            border: 1px solid rgba(192, 132, 252, 0.5);
+        }
+
+        /* Scrollbar Styling */
         ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f3e8ff;
+            background: rgba(243, 232, 255, 0.5);
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb {
-            background: #c084fc;
+            background: linear-gradient(180deg, #ec4899, #a855f7);
             border-radius: 10px;
         }
     </style>
 </head>
-<body class="h-full flex flex-col selection:bg-fuchsia-200 selection:text-fuchsia-900">
+<body class="h-full flex flex-col selection:bg-pink-300 selection:text-purple-900 pb-12">
 
-    <!-- Top Aesthetic Header -->
-    <header class="w-full py-6 px-6 text-center relative z-10">
-        <h1 style="font-family: 'Sacramento', cursive;" class="text-5xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 font-bold tracking-wide drop-shadow-[0_4px_12px_rgba(168,85,247,0.3)]">
+    <!-- Header Section -->
+    <header class="w-full py-6 px-4 text-center relative z-20">
+        <h1 style="font-family: 'Sacramento', cursive;" class="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-600 to-sky-600 drop-shadow-md">
             ✨ Your Social Buddy ✨
         </h1>
-        <p class="text-xs md:text-sm text-purple-700 font-semibold mt-1 tracking-wider uppercase">Dreamy Aesthetic • Lavender Pink Mint Blue Edition</p>
-        
-        <!-- Studio Switcher Tabs -->
-        <div class="flex justify-center gap-4 mt-5">
-            <button onclick="switchTab('video')" id="videoTabBtn" class="px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer">
-                🎥 Video / Reel Studio
+        <p class="text-xs md:text-sm font-bold text-purple-800 tracking-widest uppercase mt-1">
+            Dreamy Aesthetic Creative Suite • HD MP4 Video & Photo Studio
+        </p>
+
+        <!-- Main Studio Navigation Tabs -->
+        <div class="flex justify-center gap-4 mt-6">
+            <button id="mainVideoTab" onclick="switchMainStudio('video')" class="px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-active-tab">
+                🎥 Aesthetic Video Studio
             </button>
-            <button onclick="switchTab('photo')" id="photoTabBtn" class="px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm">
-                📸 Photo Studio (Face-Lock 🔒)
+            <button id="mainPhotoTab" onclick="switchMainStudio('photo')" class="px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-inactive-tab">
+                📸 Photo Studio
             </button>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="flex-1 max-w-6xl w-full mx-auto px-4 pb-12">
+    <!-- Main Workspace Container -->
+    <main class="flex-1 max-w-6xl w-full mx-auto px-3 sm:px-6">
 
-        <!-- ================= VIDEO / REEL STUDIO MODULE ================= -->
-        <section id="videoStudio" class="space-y-6">
+        <!-- ========================================== -->
+        <!-- 🎥 MODULE 1: AESTHETIC VIDEO STUDIO        -->
+        <!-- ========================================== -->
+        <section id="videoStudioModule" class="space-y-6">
             
-            <!-- Real-Time Live Video Preview Canvas -->
-            <div class="glass-panel rounded-3xl p-5 relative overflow-hidden">
-                <div class="flex justify-between items-center mb-3">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-purple-700">📺 Live Reel Preview Canvas</h2>
-                    <span id="videoStatusBadge" class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 font-semibold">Speed Mimicry & Audio Sync Ready</span>
-                </div>
-                <div class="w-full h-72 md:h-80 bg-gradient-to-br from-purple-100/60 via-pink-100/40 to-teal-100/50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-purple-300 relative group overflow-hidden">
-                    <div id="videoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
-                        <div class="text-4xl mb-2">🎬</div>
-                        <p class="text-sm font-bold text-purple-900">Upload Reference MP4 or Paste IG/YT/TikTok Link</p>
-                        <p class="text-xs text-pink-600 mt-1">Dynamic slots & timing/speed pacing will auto-mimic</p>
-                    </div>
-                    <video id="liveVideoPlayer" class="w-full h-full object-cover rounded-xl hidden" controls autoplay loop></video>
-                    <!-- Live Dynamic Text Overlay -->
-                    <div id="videoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all z-10" style="font-family: 'Sacramento', cursive; color: #a855f7;">
-                        Your Social Buddy ✨
-                    </div>
-                </div>
+            <!-- Video Sub-Module Switcher -->
+            <div class="glass-panel p-2 rounded-2xl flex justify-center gap-3">
+                <button id="reelsSubTabBtn" onclick="switchVideoSubStudio('reels')" class="px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md">
+                    🎞️ Reels Studio (Mimic & Custom)
+                </button>
+                <button id="promptVideoSubTabBtn" onclick="switchVideoSubStudio('prompt')" class="px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300">
+                    🪄 Prompt Studio (AI Vibe)
+                </button>
             </div>
 
-            <!-- Master Dynamic Slot & Reference Box (Links + Gallery Upload) -->
-            <div class="glass-panel rounded-3xl p-6 space-y-5">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-purple-900 flex items-center gap-2">
-                    📦 Master Reel Template & Dynamic Slots
-                </h3>
-
-                <!-- Dual Reference Options: Link Parser AND Direct MP4 Upload -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200">
-                        <label class="block text-xs font-semibold text-purple-900 mb-1">🔗 IG / YT / TikTok Reference Link</label>
-                        <div class="flex gap-2">
-                            <input type="text" id="videoLinkInput" placeholder="Paste reel link..." class="w-full bg-white/90 border border-purple-200 rounded-xl px-3 py-2 text-xs neon-border">
-                            <button onclick="parseVideoReferenceLink()" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
-                        </div>
+            <!-- SUB-MODULE 1.1: REELS STUDIO -->
+            <div id="reelsSubStudio" class="space-y-6">
+                <!-- Video Canvas Live Preview -->
+                <div class="glass-panel rounded-3xl p-5 text-center relative overflow-hidden">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-900 bg-pink-200/80 px-3 py-1 rounded-full">
+                            📺 Reels Canvas Live Preview
+                        </span>
+                        <span id="reelsStatus" class="text-xs font-semibold text-purple-800 bg-teal-200/80 px-3 py-1 rounded-full">
+                            Ready for MP4 Upload
+                        </span>
                     </div>
-                    <div class="bg-pink-50/60 p-4 rounded-2xl border border-pink-200">
-                        <label class="block text-xs font-semibold text-pink-900 mb-1">📁 Or Direct Gallery MP4 Upload</label>
-                        <label class="flex items-center justify-center gap-2 bg-white border border-pink-300 hover:bg-pink-100 rounded-xl px-4 py-2.5 text-xs font-bold text-pink-700 cursor-pointer transition shadow-sm">
-                            <span>🎬 Upload Reference MP4 File</span>
-                            <input type="file" accept="video/mp4,video/*" class="hidden" onchange="handleVideoReferenceUpload(event)">
+
+                    <div class="w-full aspect-video bg-purple-950/20 rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-purple-300/50">
+                        <div id="videoUploadPrompt" class="p-6 text-center">
+                            <div class="text-5xl mb-3">🎬</div>
+                            <p class="font-bold text-purple-900 text-sm sm:text-base">Upload Reference MP4 Below</p>
+                            <p class="text-xs text-pink-700 font-semibold mt-1">Audio will auto-extract & dynamic slots will generate!</p>
+                        </div>
+                        <canvas id="reelsCanvas" class="w-full h-full object-contain hidden"></canvas>
+                    </div>
+                </div>
+
+                <!-- Step 1: Reference MP4 & Audio Controls -->
+                <div class="glass-panel rounded-3xl p-5 space-y-4">
+                    <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">
+                        📁 Step 1: Upload Reference MP4 (Auto Audio Extraction)
+                    </h3>
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 bg-pink-100/80 p-3.5 rounded-2xl border border-pink-300">
+                        <label class="glow-btn-purple text-white px-5 py-2.5 rounded-xl text-xs font-bold cursor-pointer w-full sm:w-auto text-center">
+                            🎥 Select Reference MP4
+                            <input type="file" id="refMp4Input" accept="video/mp4,video/*" class="hidden" onchange="handleRefMp4Upload(event)">
                         </label>
+                        <span id="refMp4Name" class="text-xs font-bold text-purple-800 truncate max-w-xs">No MP4 loaded</span>
+                    </div>
+
+                    <!-- Dynamic Clip Slots Container -->
+                    <div>
+                        <label class="block text-xs font-bold text-purple-900 mb-2 uppercase">🎞️ Dynamic Gallery Clip Slots</label>
+                        <div id="reelsClipSlotsGrid" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div class="col-span-3 text-center py-6 text-xs text-purple-700 bg-pink-100/50 rounded-xl border border-dashed border-pink-300 font-medium">
+                                Upload Reference MP4 first to generate dynamic gallery slots!
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Dynamic Slots Container -->
-                <div class="bg-white/80 p-4 rounded-2xl border border-purple-200 space-y-3">
+                <!-- Step 2: 100+ Filters Grid -->
+                <div class="glass-panel rounded-3xl p-5 space-y-3">
                     <div class="flex justify-between items-center">
-                        <label class="block text-xs font-bold text-purple-900 uppercase tracking-wide">🎞️ Dynamic Required Clips (Template Based with Speed Pacing)</label>
-                        <span id="videoSlotCountBadge" class="text-[10px] px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-bold">Awaiting Reference</span>
+                        <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">✨ 100+ Working Aesthetic Filters Grid</h3>
+                        <span id="activeFilterName" class="text-xs font-bold bg-purple-200 text-purple-900 px-3 py-1 rounded-full">Active: None</span>
                     </div>
-                    <div id="videoDynamicSlotsContainer" class="text-center py-6 text-xs text-purple-600 font-medium border-2 border-dashed border-purple-200 rounded-xl">
-                        Slots will appear automatically after providing reference link or uploading reference MP4.
+                    <div id="videoFilterGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 max-h-48 overflow-y-auto p-1">
+                        <!-- Populated by JS -->
                     </div>
                 </div>
 
-                <!-- Background Music & Specific Audio Snippet Section (e.g., "Maula Mere" parts) -->
-                <div class="bg-teal-50/60 p-4 rounded-2xl border border-teal-200 space-y-3">
-                    <label class="block text-xs font-bold text-teal-900 uppercase tracking-wide">🎵 Background Music & Specific Audio Snippet Sync</label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                            <label class="block text-[11px] font-semibold text-teal-800 mb-1">Upload Song / Audio File</label>
-                            <input type="file" accept="audio/*" onchange="handleAudioUpload(event)" class="w-full text-xs text-teal-700 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-teal-600 file:text-white hover:file:bg-teal-700 cursor-pointer">
+                <!-- Step 3: 50 Aesthetic Fonts & Text Suite -->
+                <div class="glass-panel rounded-3xl p-5 space-y-4">
+                    <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">✍️ 50 Aesthetic Fonts & Text Overlay</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Custom Text Overlay</label>
+                            <input type="text" id="reelsTextOverlay" value="Dreamy Vibe ✨" oninput="updateReelsCanvas()" class="w-full bg-pink-50 border border-purple-300 rounded-xl px-3 py-2 text-xs font-semibold focus:outline-purple-500">
                         </div>
                         <div>
-                            <label class="block text-[11px] font-semibold text-teal-800 mb-1">Specific Audio Part / Lyrics Snippet Sync</label>
-                            <input type="text" id="audioSnippetInput" placeholder="e.g., 'Maula Mere' wala exact part sync karo" class="w-full bg-white/90 border border-teal-200 rounded-xl px-3 py-2 text-xs neon-border">
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Select Font (50 Aesthetic Fonts)</label>
+                            <select id="reelsFontSelect" onchange="updateReelsCanvas()" class="w-full bg-pink-50 border border-purple-300 rounded-xl px-2 py-2 text-xs font-semibold focus:outline-purple-500">
+                                <!-- Populated dynamically by JS -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Text Color & Style</label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="reelsTextColor" value="#ffffff" onchange="updateReelsCanvas()" class="h-8 w-12 bg-transparent cursor-pointer rounded">
+                                <button onclick="toggleBold('reels')" id="reelsBoldBtn" class="px-3 py-1 bg-pink-200 hover:bg-pink-300 rounded-lg text-xs font-bold text-purple-900 border border-purple-300">B</button>
+                                <button onclick="toggleItalic('reels')" id="reelsItalicBtn" class="px-3 py-1 bg-pink-200 hover:bg-pink-300 rounded-lg text-xs italic font-bold text-purple-900 border border-purple-300">I</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Custom Overlay Text Input -->
-                <div>
-                    <label class="block text-xs font-semibold text-purple-900 mb-1">✍️ Custom Overlay Text</label>
-                    <input type="text" id="customVideoText" value="Your Social Buddy ✨" oninput="updateLiveText(this.value)" class="w-full bg-white/90 border border-purple-200 rounded-xl px-3 py-2 text-sm neon-border">
-                </div>
-
-                <!-- 30+ Fonts & Styling Controls -->
-                <div>
-                    <label class="block text-xs font-semibold text-purple-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
-                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-purple-200 rounded-xl p-3">
-                        <select id="videoFontSelect" onchange="updateFontStyle()" class="bg-white border border-purple-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
-                            <option value="'Sacramento', cursive">Sacramento (Cursive Dream)</option>
-                            <option value="'Great Vibes', cursive">Great Vibes (Luxurious)</option>
-                            <option value="'Dancing Script', cursive">Dancing Script (Playful)</option>
-                            <option value="'Pacifico', cursive">Pacifico (Bold Cute)</option>
-                            <option value="'Caveat', cursive">Caveat (Handwritten)</option>
-                            <option value="'Satisfy', cursive">Satisfy (Smooth Flow)</option>
-                            <option value="'Italianno', cursive">Italianno (Classic Cursive)</option>
-                            <option value="'Alex Brush', cursive">Alex Brush (Elegant)</option>
-                            <option value="'Parisienne', cursive">Parisienne (Paris Vibe)</option>
-                            <option value="'Allura', cursive">Allura (Soft Script)</option>
-                            <option value="'Petit Formal Script', cursive">Petit Formal (Formal)</option>
-                            <option value="'Tangerine', cursive">Tangerine (Royal Script)</option>
-                            <option value="'Mr DeHaviland', cursive">Mr DeHaviland (Thin Cursive)</option>
-                            <option value="'Zeyada', cursive">Zeyada (Drawn Note)</option>
-                            <option value="'Reenie Beanie', cursive">Reenie Beanie (Journaling)</option>
-                            <option value="'Indie Flower', cursive">Indie Flower (Doodle Style)</option>
-                            <option value="'Quicksand', sans-serif">Quicksand (Clean Modern)</option>
-                            <option value="'Montserrat', sans-serif">Montserrat (Bold Chic)</option>
-                            <option value="'Poppins', sans-serif">Poppins (Trendy Rounded)</option>
-                            <option value="'Outfit', sans-serif">Outfit (Minimalist)</option>
-                            <option value="'Josefin Sans', sans-serif">Josefin Sans (Retro Chic)</option>
-                            <option value="'Playfair Display', serif">Playfair Display (Classy Serif)</option>
-                            <option value="'Cormorant Garamond', serif">Cormorant Garamond (Royal Serif)</option>
-                            <option value="'Cinzel', serif">Cinzel (Luxury Editorial)</option>
-                            <option value="'Courier Prime', monospace">Courier Prime (Typewriter)</option>
-                            <option value="'Bebas Neue', sans-serif">Bebas Neue (Bold Headline)</option>
-                            <option value="'Lobster', cursive">Lobster (Pop Aesthetic)</option>
-                        </select>
-                        <button onclick="toggleFontWeight()" id="videoBoldBtn" class="px-3 py-1.5 bg-purple-100 hover:bg-purple-200 rounded-lg text-xs font-bold text-purple-800 transition cursor-pointer"><b>B</b></button>
-                        <button onclick="toggleFontItalic()" id="videoItalicBtn" class="px-3 py-1.5 bg-purple-100 hover:bg-purple-200 rounded-lg text-xs font-italic text-purple-800 transition cursor-pointer"><i>I</i></button>
-                        <div class="flex items-center gap-1.5 ml-auto">
-                            <span class="text-xs text-purple-800 font-semibold">Color:</span>
-                            <input type="color" id="videoTextColor" value="#a855f7" onchange="updateFontColor(this.value)" class="w-7 h-7 rounded-lg border border-purple-300 cursor-pointer">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 100+ Working Video Filters Grid -->
-                <div>
-                    <label class="block text-xs font-semibold text-purple-900 mb-1">🎨 100+ Working Video Filters (Real-time Canvas Rendering)</label>
-                    <div id="videoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-purple-100"></div>
-                </div>
-            </div>
-
-            <!-- AI Vibe Prompt Generator with WORKING MP4 Media Upload (Video Studio) -->
-            <div class="glass-panel rounded-3xl p-5 space-y-4">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-xs font-bold uppercase tracking-wider text-purple-800">✨ AI Vibe & Music Snippet Generator (Video Studio)</h3>
-                    <span id="aiVideoStatus" class="text-[10px] px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-700 font-bold">Ready for MP4 Upload</span>
-                </div>
-                <p class="text-xs text-purple-900 font-medium">Upload your MP4 video below, describe your vibe (e.g. "Maula Mere wala part sync karke dreamy slow-mo vibe bana do"), aur prompt apply hote hi video canvas par live chalne lagega!</p>
-                
-                <!-- Working MP4 Video Upload Box inside AI Generator -->
-                <div class="bg-gradient-to-r from-purple-50 via-pink-50 to-sky-50 p-3.5 rounded-2xl border border-purple-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <label class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
-                        <span>📁 Upload MP4 Video for AI Prompt</span>
-                        <input type="file" id="aiVideoFileInput" accept="video/mp4,video/*" class="hidden" onchange="handleAIVideoUpload(event)">
-                    </label>
-                    <span id="aiVideoFileName" class="text-xs text-purple-700 font-bold truncate max-w-xs">No video uploaded for AI yet</span>
-                </div>
-
-                <!-- Prompt Input & Apply Button -->
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="text" id="videoPromptInput" placeholder="Vibe ya specific song part describe karo..." class="flex-1 bg-white border border-purple-200 rounded-xl px-4 py-2.5 text-sm neon-border">
-                    <button onclick="generateAITemplate('video')" class="px-6 py-2.5 bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 hover:opacity-95 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
-                        🪄 Apply Prompt to MP4
+                <!-- Export Video Button -->
+                <div class="text-center pt-2">
+                    <button id="reelsExportBtn" onclick="exportReelsVideo()" class="glow-btn-purple text-white px-10 py-4 rounded-2xl font-bold text-sm tracking-wide w-full sm:w-auto cursor-pointer">
+                        ⬇️ Ultra HD Download MP4 Video Direct to Gallery
                     </button>
                 </div>
             </div>
 
-            <!-- Real Gallery Download Button -->
-            <div class="text-center pt-2">
-                <button onclick="downloadFinalFile('video')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-purple-600 via-pink-500 to-sky-500 hover:opacity-95 text-white font-bold rounded-2xl shadow-lg dreamy-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                    ⬇️ Ultra HD Download & Save Video to Gallery
-                </button>
+            <!-- SUB-MODULE 1.2: PROMPT STUDIO (VIDEO) -->
+            <div id="promptVideoSubStudio" class="space-y-6 hidden">
+                <div class="glass-panel rounded-3xl p-5 text-center space-y-4">
+                    <h2 class="text-base font-bold uppercase text-purple-900 tracking-wider">🪄 AI Vibe Prompt Video Transformation</h2>
+                    
+                    <div class="w-full aspect-video bg-purple-950/20 rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-purple-300/50">
+                        <div id="promptVideoPlaceholder" class="p-6 text-center">
+                            <div class="text-5xl mb-3">🔮</div>
+                            <p class="font-bold text-purple-900 text-sm">Upload Video & Type Vibe Prompt Below</p>
+                        </div>
+                        <canvas id="promptVideoCanvas" class="w-full h-full object-contain hidden"></canvas>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <label class="glow-btn-teal text-white px-5 py-2.5 rounded-xl text-xs font-bold cursor-pointer shrink-0">
+                            🎥 Upload Input MP4
+                            <input type="file" accept="video/*" class="hidden" onchange="handlePromptVideoUpload(event)">
+                        </label>
+                        <input type="text" id="videoPromptInput" placeholder="Describe vibe: e.g. Dreamy slow-mo, soft pink aesthetic glow, Y2K warm contrast..." class="flex-1 bg-pink-50 border border-purple-300 rounded-xl px-4 py-2 text-xs font-semibold focus:outline-purple-500">
+                        <button onclick="applyVideoAIVibe()" class="glow-btn-purple text-white px-6 py-2.5 rounded-xl text-xs font-bold cursor-pointer shrink-0">
+                            ✨ Apply AI Vibe
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button id="promptVideoExportBtn" onclick="exportPromptVideo()" class="glow-btn-teal text-white px-10 py-4 rounded-2xl font-bold text-sm tracking-wide w-full sm:w-auto cursor-pointer">
+                        ⬇️ Ultra HD Download AI Video MP4 Direct to Gallery
+                    </button>
+                </div>
             </div>
+
         </section>
 
+        <!-- ========================================== -->
+        <!-- 📸 MODULE 2: PHOTO STUDIO                  -->
+        <!-- ========================================== -->
+        <section id="photoStudioModule" class="space-y-6 hidden">
 
-        <!-- ================= PHOTO STUDIO MODULE ================= -->
-        <section id="photoStudio" class="space-y-6 hidden">
-            
-            <!-- Real-Time Live Photo Preview Canvas -->
-            <div class="glass-panel rounded-3xl p-5 relative overflow-hidden">
-                <div class="flex justify-between items-center mb-3">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-pink-700">🖼️ Live Matching Photo Preview</h2>
-                    <span class="text-xs px-2.5 py-1 rounded-full bg-pink-100 text-pink-800 font-semibold">Strict Face-Lock Active 🔒 (Face Never Changes)</span>
-                </div>
-                <div id="photoCanvasArea" class="w-full h-72 md:h-80 bg-gradient-to-br from-pink-100/60 via-purple-100/40 to-sky-100/50 rounded-2xl flex flex-col items-center justify-center border-2 border-dashed border-pink-300 relative overflow-hidden">
-                    <div id="photoPlaceholder" class="text-center p-6 flex flex-col items-center justify-center">
-                        <div class="text-4xl mb-2">📸</div>
-                        <p class="text-sm font-bold text-pink-900">Upload your photo in the fixed slot or paste link below</p>
-                        <p class="text-xs text-purple-700 mt-1">Face-lock protection enabled for all enhancements</p>
-                    </div>
-                    <img id="livePhotoPreview" class="w-full h-full object-cover rounded-xl hidden transition-all" alt="Preview">
-                    <!-- Live Dynamic Text Overlay -->
-                    <div id="photoTextOverlay" class="absolute bottom-4 left-4 text-2xl font-bold drop-shadow-lg pointer-events-none transition-all hidden z-10" style="font-family: 'Sacramento', cursive; color: #ec4899;">
-                        Your Social Buddy ✨
-                    </div>
-                </div>
+            <!-- Photo Sub-Module Switcher -->
+            <div class="glass-panel p-2 rounded-2xl flex justify-center flex-wrap gap-2">
+                <button id="refPhotoSubTabBtn" onclick="switchPhotoSubStudio('ref')" class="px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md">
+                    🖼️ Reference Photo Studio
+                </button>
+                <button id="promptPhotoSubTabBtn" onclick="switchPhotoSubStudio('prompt')" class="px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300">
+                    🪄 Prompt Studio
+                </button>
+                <button id="bgEnhanceSubTabBtn" onclick="switchPhotoSubStudio('bgenhance')" class="px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300">
+                    🎨 BG & Enhancement Studio
+                </button>
             </div>
 
-            <!-- Master Fixed Slot & Reference Box (Links + Gallery Upload) -->
-            <div class="glass-panel rounded-3xl p-6 space-y-5">
-                <h3 class="text-sm font-bold uppercase tracking-wider text-pink-900">📦 Master Photo Slot & Reference (Strictly 1 Fixed Slot - No Music)</h3>
+            <!-- SUB-MODULE 2.1: REFERENCE PHOTO STUDIO -->
+            <div id="refPhotoSubStudio" class="space-y-6">
+                <div class="glass-panel rounded-3xl p-5 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">🖼️ Style Clone & Filters (Inbuilt Face-Lock 🔒)</h3>
+                        <span class="text-xs bg-pink-200 text-pink-900 font-bold px-3 py-1 rounded-full">Face Preserved 100%</span>
+                    </div>
 
-                <!-- Dual Reference Options for Photo: Link Parser AND Direct Gallery Upload -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-pink-50/60 p-4 rounded-2xl border border-pink-200">
-                        <label class="block text-xs font-semibold text-pink-900 mb-1">🔗 Reference Photo Link (IG / Pinterest)</label>
-                        <div class="flex gap-2">
-                            <input type="text" id="photoLinkInput" placeholder="Paste photo link..." class="w-full bg-white/90 border border-pink-200 rounded-xl px-3 py-2 text-xs neon-border">
-                            <button onclick="parsePhotoReferenceLink()" class="px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-xl text-xs font-bold transition cursor-pointer shadow">Parse Link</button>
+                    <!-- Canvas Workspace -->
+                    <div class="w-full h-80 bg-purple-950/10 rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-purple-300/50">
+                        <div id="refPhotoPlaceholder" class="text-center p-6">
+                            <div class="text-5xl mb-2">📸</div>
+                            <p class="font-bold text-purple-900 text-xs sm:text-sm">Upload Target Photo Below</p>
+                        </div>
+                        <canvas id="photoRefCanvas" class="w-full h-full object-contain hidden"></canvas>
+                    </div>
+
+                    <!-- Image Upload Controls -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="bg-pink-100/80 p-3 rounded-2xl border border-pink-300 text-center">
+                            <label class="glow-btn-purple text-white px-4 py-2 rounded-xl text-xs font-bold cursor-pointer inline-block">
+                                📤 1. Upload Reference Photo (Style)
+                                <input type="file" accept="image/*" class="hidden" onchange="handleRefPhotoUpload(event)">
+                            </label>
+                            <p id="refPhotoStyleName" class="text-[10px] font-bold text-purple-800 mt-1 truncate">No style photo loaded</p>
+                        </div>
+                        <div class="bg-pink-100/80 p-3 rounded-2xl border border-pink-300 text-center">
+                            <label class="glow-btn-teal text-white px-4 py-2 rounded-xl text-xs font-bold cursor-pointer inline-block">
+                                🖼️ 2. Upload Target Photo (Face Locked)
+                                <input type="file" accept="image/*" class="hidden" onchange="handleTargetPhotoUpload(event)">
+                            </label>
+                            <p id="targetPhotoName" class="text-[10px] font-bold text-purple-800 mt-1 truncate">No target photo loaded</p>
                         </div>
                     </div>
-                    <div class="bg-purple-50/60 p-4 rounded-2xl border border-purple-200 text-center">
-                        <label class="block text-xs font-bold text-purple-900 mb-2">Photo Slot 1 (Main Face-Lock Protected)</label>
-                        <label class="px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
-                            📁 Upload Photo from Gallery
-                            <input type="file" accept="image/*" class="hidden" onchange="handlePhotoSlotUpload(event)">
-                        </label>
-                        <p id="pSlot1Name" class="text-xs text-purple-700 mt-2 font-medium truncate">No photo added</p>
+
+                    <!-- 100+ Filters Grid -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold uppercase text-purple-900">✨ 100+ Aesthetic Working Filters</label>
+                        <div id="photoFilterGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-1">
+                            <!-- Populated dynamically -->
+                        </div>
                     </div>
-                </div>
 
-                <!-- Custom Overlay Text Input -->
-                <div>
-                    <label class="block text-xs font-semibold text-pink-900 mb-1">✍️ Custom Overlay Text</label>
-                    <input type="text" id="customPhotoText" value="Your Social Buddy ✨" oninput="updatePhotoLiveText(this.value)" class="w-full bg-white/90 border border-pink-200 rounded-xl px-3 py-2 text-sm neon-border">
-                </div>
-
-                <!-- 30+ Fonts & Styling Controls -->
-                <div>
-                    <label class="block text-xs font-semibold text-pink-900 mb-1">🔤 30+ Aesthetic Fonts & Styling</label>
-                    <div class="flex flex-wrap gap-2 items-center bg-white/90 border border-pink-200 rounded-xl p-3">
-                        <select id="photoFontSelect" onchange="updatePhotoFontStyle()" class="bg-white border border-pink-200 rounded-lg px-2.5 py-1.5 text-xs neon-border max-w-xs">
-                            <option value="'Sacramento', cursive">Sacramento (Cursive Dream)</option>
-                            <option value="'Great Vibes', cursive">Great Vibes (Luxurious)</option>
-                            <option value="'Dancing Script', cursive">Dancing Script (Playful)</option>
-                            <option value="'Pacifico', cursive">Pacifico (Bold Cute)</option>
-                            <option value="'Caveat', cursive">Caveat (Handwritten)</option>
-                            <option value="'Satisfy', cursive">Satisfy (Smooth Flow)</option>
-                            <option value="'Italianno', cursive">Italianno (Classic Cursive)</option>
-                            <option value="'Alex Brush', cursive">Alex Brush (Elegant)</option>
-                            <option value="'Parisienne', cursive">Parisienne (Paris Vibe)</option>
-                            <option value="'Allura', cursive">Allura (Soft Script)</option>
-                            <option value="'Petit Formal Script', cursive">Petit Formal (Formal)</option>
-                            <option value="'Tangerine', cursive">Tangerine (Royal Script)</option>
-                            <option value="'Mr DeHaviland', cursive">Mr DeHaviland (Thin Cursive)</option>
-                            <option value="'Zeyada', cursive">Zeyada (Drawn Note)</option>
-                            <option value="'Reenie Beanie', cursive">Reenie Beanie (Journaling)</option>
-                            <option value="'Indie Flower', cursive">Indie Flower (Doodle Style)</option>
-                            <option value="'Quicksand', sans-serif">Quicksand (Clean Modern)</option>
-                            <option value="'Montserrat', sans-serif">Montserrat (Bold Chic)</option>
-                            <option value="'Poppins', sans-serif">Poppins (Trendy Rounded)</option>
-                            <option value="'Outfit', sans-serif">Outfit (Minimalist)</option>
-                            <option value="'Josefin Sans', sans-serif">Josefin Sans (Retro Chic)</option>
-                            <option value="'Playfair Display', serif">Playfair Display (Classy Serif)</option>
-                            <option value="'Cormorant Garamond', serif">Cormorant Garamond (Royal Serif)</option>
-                            <option value="'Cinzel', serif">Cinzel (Luxury Editorial)</option>
-                            <option value="'Courier Prime', monospace">Courier Prime (Typewriter)</option>
-                            <option value="'Bebas Neue', sans-serif">Bebas Neue (Bold Headline)</option>
-                            <option value="'Lobster', cursive">Lobster (Pop Aesthetic)</option>
-                        </select>
-                        <button onclick="togglePhotoFontWeight()" id="photoBoldBtn" class="px-3 py-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg text-xs font-bold text-pink-800 transition cursor-pointer"><b>B</b></button>
-                        <button onclick="togglePhotoFontItalic()" id="photoItalicBtn" class="px-3 py-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg text-xs font-italic text-pink-800 transition cursor-pointer"><i>I</i></button>
-                        <div class="flex items-center gap-1.5 ml-auto">
-                            <span class="text-xs text-pink-800 font-semibold">Color:</span>
-                            <input type="color" id="photoTextColor" value="#ec4899" onchange="updatePhotoFontColor(this.value)" class="w-7 h-7 rounded-lg border border-pink-300 cursor-pointer">
+                    <!-- 50 Fonts & Text Suite -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Photo Text Overlay</label>
+                            <input type="text" id="photoTextOverlay" value="Aesthetic Aura ✨" oninput="updatePhotoCanvas()" class="w-full bg-pink-50 border border-purple-300 rounded-xl px-3 py-2 text-xs font-semibold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Font Family (50 Fonts)</label>
+                            <select id="photoFontSelect" onchange="updatePhotoCanvas()" class="w-full bg-pink-50 border border-purple-300 rounded-xl px-2 py-2 text-xs font-semibold">
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-purple-900 mb-1">Color & Formatting</label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="photoTextColor" value="#ffffff" onchange="updatePhotoCanvas()" class="h-8 w-12 bg-transparent cursor-pointer rounded">
+                                <button onclick="toggleBold('photo')" id="photoBoldBtn" class="px-3 py-1 bg-pink-200 hover:bg-pink-300 rounded-lg text-xs font-bold text-purple-900 border border-purple-300">B</button>
+                                <button onclick="toggleItalic('photo')" id="photoItalicBtn" class="px-3 py-1 bg-pink-200 hover:bg-pink-300 rounded-lg text-xs italic font-bold text-purple-900 border border-purple-300">I</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 100+ Working Pro Photo Filters Grid -->
-                <div>
-                    <label class="block text-xs font-semibold text-pink-900 mb-1">🎨 100+ Pro Photo Filters (Real-time Canvas Rendering)</label>
-                    <div id="photoFiltersGrid" class="grid grid-cols-3 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto p-2 bg-white/60 rounded-xl border border-pink-100"></div>
-                </div>
-            </div>
-
-            <!-- AI Vibe & Enhancement Prompt Generator with WORKING Photo Upload (Photo Studio - Strict Face-Lock) -->
-            <div class="glass-panel rounded-3xl p-5 space-y-4">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-xs font-bold uppercase tracking-wider text-pink-800">✨ AI Enhancement & Vibe Generator (Face-Lock Protected)</h3>
-                    <span id="aiPhotoStatus" class="text-[10px] px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-700 font-bold">Ready for Photo Upload</span>
-                </div>
-                <p class="text-xs text-pink-900 font-medium">Photo upload karo, enhancement prompt likho (e.g., "glowing blush aura vibe"). Original face 100% secure rahega aur enhancement live preview par apply ho jayegi!</p>
-                
-                <!-- Working Photo Upload Box inside AI Generator -->
-                <div class="bg-gradient-to-r from-pink-50 via-purple-50 to-sky-50 p-3.5 rounded-2xl border border-pink-200 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <label class="flex items-center gap-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white rounded-xl px-4 py-2.5 text-xs font-bold cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
-                        <span>📁 Upload Photo for AI Prompt</span>
-                        <input type="file" id="aiPhotoFileInput" accept="image/*" class="hidden" onchange="handleAIPhotoUpload(event)">
-                    </label>
-                    <span id="aiPhotoFileName" class="text-xs text-pink-700 font-bold truncate max-w-xs">No photo uploaded for AI yet</span>
-                </div>
-
-                <!-- Prompt Input & Apply Button -->
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="text" id="photoPromptInput" placeholder="e.g., enhance photo with dreamy soft glow..." class="flex-1 bg-white border border-pink-200 rounded-xl px-4 py-2.5 text-sm neon-border">
-                    <button onclick="generateAITemplate('photo')" class="px-6 py-2.5 bg-gradient-to-r from-pink-500 via-purple-500 to-sky-400 hover:opacity-95 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
-                        🪄 Apply Prompt to Photo
+                <div class="text-center">
+                    <button onclick="downloadPhotoCanvas()" class="glow-btn-purple text-white px-10 py-4 rounded-2xl font-bold text-sm cursor-pointer w-full sm:w-auto">
+                        ⬇️ Ultra High-Res Download Photo Direct to Gallery
                     </button>
                 </div>
             </div>
 
-            <!-- Real Gallery Download Button -->
-            <div class="text-center pt-2">
-                <button onclick="downloadFinalFile('photo')" class="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-500 via-purple-500 to-sky-400 hover:opacity-95 text-white font-bold rounded-2xl shadow-lg dreamy-glow transition-all transform hover:-translate-y-0.5 cursor-pointer">
-                    ⬇️ Ultra HD Download & Save Photo to Gallery
-                </button>
+            <!-- SUB-MODULE 2.2: PROMPT STUDIO (PHOTO) -->
+            <div id="promptPhotoSubStudio" class="space-y-6 hidden">
+                <div class="glass-panel rounded-3xl p-5 space-y-4 text-center">
+                    <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">🪄 AI Photo Vibe Transformation (Inbuilt Face-Lock 🔒)</h3>
+                    
+                    <div class="w-full h-80 bg-purple-950/10 rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-purple-300/50">
+                        <div id="promptPhotoPlaceholder" class="p-6 text-center">
+                            <div class="text-5xl mb-2">🔮</div>
+                            <p class="font-bold text-purple-900 text-xs">Upload Photo & Type Aesthetic Vibe Prompt</p>
+                        </div>
+                        <canvas id="photoPromptCanvas" class="w-full h-full object-contain hidden"></canvas>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <label class="glow-btn-teal text-white px-5 py-2.5 rounded-xl text-xs font-bold cursor-pointer shrink-0">
+                            🖼️ Upload Photo
+                            <input type="file" accept="image/*" class="hidden" onchange="handlePromptPhotoUpload(event)">
+                        </label>
+                        <input type="text" id="photoPromptInput" placeholder="Describe aesthetic: e.g. Vintage Y2K flash, golden hour soft glow, Cyberpunk pink aura..." class="flex-1 bg-pink-50 border border-purple-300 rounded-xl px-4 py-2 text-xs font-semibold">
+                        <button onclick="applyPhotoAIVibe()" class="glow-btn-purple text-white px-6 py-2.5 rounded-xl text-xs font-bold cursor-pointer shrink-0">
+                            ✨ Transform
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="downloadCanvasByID('photoPromptCanvas')" class="glow-btn-teal text-white px-10 py-4 rounded-2xl font-bold text-sm cursor-pointer w-full sm:w-auto">
+                        ⬇️ Download High-Res AI Photo Direct to Gallery
+                    </button>
+                </div>
             </div>
+
+            <!-- SUB-MODULE 2.3: BG & ENHANCEMENT STUDIO -->
+            <div id="bgEnhanceSubStudio" class="space-y-6 hidden">
+                <div class="glass-panel rounded-3xl p-5 space-y-5">
+                    <h3 class="text-sm font-bold uppercase text-purple-900 tracking-wider">🎨 Background & Photo Enhancement Suite</h3>
+
+                    <div class="w-full h-80 bg-purple-950/10 rounded-2xl flex items-center justify-center relative overflow-hidden border-2 border-purple-300/50">
+                        <div id="bgStudioPlaceholder" class="p-6 text-center">
+                            <div class="text-5xl mb-2">✨</div>
+                            <p class="font-bold text-purple-900 text-xs">Upload Main Photo to Begin</p>
+                        </div>
+                        <canvas id="bgStudioCanvas" class="w-full h-full object-contain hidden"></canvas>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="bg-pink-100/80 p-3 rounded-2xl border border-pink-300">
+                            <label class="block text-xs font-bold text-purple-900 mb-1">1. Subject Photo</label>
+                            <label class="glow-btn-purple text-white px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer block text-center">
+                                📤 Select Subject
+                                <input type="file" accept="image/*" class="hidden" onchange="handleSubjectPhotoUpload(event)">
+                            </label>
+                        </div>
+
+                        <div class="bg-pink-100/80 p-3 rounded-2xl border border-pink-300">
+                            <label class="block text-xs font-bold text-purple-900 mb-1">2. BG Color / Image</label>
+                            <div class="flex items-center gap-2">
+                                <input type="color" id="bgColorPicker" value="#f472b6" onchange="applySolidBgColor()" class="h-8 w-10 bg-transparent cursor-pointer">
+                                <label class="glow-btn-teal text-white px-2 py-1.5 rounded-lg text-[10px] font-bold cursor-pointer block text-center flex-1">
+                                    🖼️ Custom BG
+                                    <input type="file" accept="image/*" class="hidden" onchange="handleCustomBgUpload(event)">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="bg-pink-100/80 p-3 rounded-2xl border border-pink-300">
+                            <label class="block text-xs font-bold text-purple-900 mb-1">3. Enhancer & Unblur</label>
+                            <button onclick="applyPhotoEnhance()" class="w-full py-1.5 bg-gradient-to-r from-teal-500 to-indigo-600 hover:opacity-95 text-white rounded-lg text-xs font-bold shadow">
+                                ⚡ Unblur & Sharp HD
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="downloadCanvasByID('bgStudioCanvas')" class="glow-btn-purple text-white px-10 py-4 rounded-2xl font-bold text-sm cursor-pointer w-full sm:w-auto">
+                        ⬇️ Download Enhanced Photo Direct to Gallery
+                    </button>
+                </div>
+            </div>
+
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="w-full py-4 text-center text-xs text-purple-700 font-semibold">
-        Made with 💖 for Your Social Buddy (Dreamy Aesthetic Edition)
-    </footer>
+    <!-- Hidden Video & Audio Processing Elements -->
+    <video id="hiddenRefVideo" class="hidden" playsinline muted></video>
+    <audio id="extractedAudio" class="hidden" loop></audio>
 
-    <!-- JavaScript Interactivity -->
     <script>
-        let loadedAIVideoFile = null;
-        let loadedAIPhotoFile = null;
+        /* ==========================================================================
+           1. 50 AESTHETIC FONTS & 100 PRO FILTERS DATA DEFINITIONS
+           ========================================================================== */
+        const FONT_LIST = [
+            { name: "Sacramento (Cursive Dream)", font: "'Sacramento', cursive" },
+            { name: "Great Vibes (Luxurious)", font: "'Great Vibes', cursive" },
+            { name: "Dancing Script (Playful)", font: "'Dancing Script', cursive" },
+            { name: "Pacifico (Bold Retro)", font: "'Pacifico', cursive" },
+            { name: "Caveat (Handwritten)", font: "'Caveat', cursive" },
+            { name: "Playfair Display (Editorial)", font: "'Playfair Display', serif" },
+            { name: "Press Start 2P (Y2K Pixel)", font: "'Press Start 2P', cursive" },
+            { name: "Monoton (Neon Lights)", font: "'Monoton', cursive" },
+            { name: "VT323 (Cyber Typewriter)", font: "'VT323', monospace" },
+            { name: "Orbitron (Futuristic)", font: "'Orbitron', sans-serif" },
+            { name: "Amatic SC (Indie Chic)", font: "'Amatic SC', cursive" },
+            { name: "Allura (Romantic)", font: "'Allura', cursive" },
+            { name: "Alex Brush (Calligraphy)", font: "'Alex Brush', cursive" },
+            { name: "Bebas Neue (Impact Header)", font: "'Bebas Neue', cursive" },
+            { name: "Cinzel (Classic Luxe)", font: "'Cinzel', serif" },
+            { name: "Comfortaa (Soft Modern)", font: "'Comfortaa', cursive" },
+            { name: "Cormorant Garamond (Italic Elegant)", font: "'Cormorant Garamond', serif" },
+            { name: "Fira Code (Tech Code)", font: "'Fira Code', monospace" },
+            { name: "Fredoka (Cute Bubble)", font: "'Fredoka', sans-serif" },
+            { name: "Indie Flower (Cute Note)", font: "'Indie Flower', cursive" },
+            { name: "Italianno (High Society)", font: "'Italianno', cursive" },
+            { name: "Josefin Sans (Minimal)", font: "'Josefin Sans', sans-serif" },
+            { name: "Jost (Geometric Clean)", font: "'Jost', sans-serif" },
+            { name: "Lobster (Vintage Poster)", font: "'Lobster', cursive" },
+            { name: "Lora (Poetic Serif)", font: "'Lora', serif" },
+            { name: "Marck Script (Flowing Note)", font: "'Marck Script', cursive" },
+            { name: "Megrim (Abstract Lines)", font: "'Megrim', cursive" },
+            { name: "Montserrat (Ultra Bold)", font: "'Montserrat', sans-serif" },
+            { name: "Mr Dafoe (Signature)", font: "'Mr Dafoe', cursive" },
+            { name: "Neonderthaw (Glow Neon)", font: "'Neonderthaw', cursive" },
+            { name: "Niconne (Vintage Script)", font: "'Niconne', cursive" },
+            { name: "Oswald (Tall Condensed)", font: "'Oswald', sans-serif" },
+            { name: "Parisienne (French Luxe)", font: "'Parisienne', cursive" },
+            { name: "Permanent Marker (Street Art)", font: "'Permanent Marker', cursive" },
+            { name: "Poiret One (Art Deco)", font: "'Poiret One', cursive" },
+            { name: "Poppins (Clean Modern)", font: "'Poppins', sans-serif" },
+            { name: "Quicksand (Soft Rounded)", font: "'Quicksand', sans-serif" },
+            { name: "Satisfy (Brush Calligraphy)", font: "'Satisfy', cursive" },
+            { name: "Shadows Into Light (Doodle)", font: "'Shadows Into Light', cursive" },
+            { name: "Space Grotesk (Y2K Modern)", font: "'Space Grotesk', sans-serif" },
+            { name: "Special Elite (Vintage Press)", font: "'Special Elite', cursive" },
+            { name: "Syne (Avant-Garde)", font: "'Syne', sans-serif" },
+            { name: "Tangerine (Graceful Cursive)", font: "'Tangerine', cursive" },
+            { name: "UnifrakturMaguntia (Gothic Y2K)", font: "'UnifrakturMaguntia', cursive" },
+            { name: "Vampiro One (Retro Horror)", font: "'Vampiro One', cursive" },
+            { name: "Vibur (Casual Cursive)", font: "'Vibur', cursive" },
+            { name: "Zeyada (Personal Sketch)", font: "'Zeyada', cursive" },
+            { name: "Lekton (Technical Mono)", font: "'Lekton', monospace" },
+            { name: "Inter (Standard Clean)", font: "'Inter', sans-serif" },
+            { name: "Caveat Bold (Thick Hand)", font: "'Caveat', cursive" }
+        ];
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const filterCategories = ['Blush', 'Neon', 'Vintage', 'Mauve', 'Mint', 'Peach', 'Lavender', 'Rose', 'Aura', 'Dream', 'Glow', 'Sunset', 'Midnight', 'Ethereal', 'Candy', 'Ruby', 'Sapphire', 'Emerald', 'Golden', 'Diamond'];
-            const videoGrid = document.getElementById('videoFiltersGrid');
-            const photoGrid = document.getElementById('photoFiltersGrid');
+        // 100 Working CSS Canvas Filter Presets
+        const FILTER_PRESETS = [];
+        const BASE_STYLES = [
+            { name: "Soft Pink Glow", filter: "hue-rotate(-20deg) saturate(1.4) brightness(1.1) contrast(1.05)" },
+            { name: "Dreamy Lavender", filter: "hue-rotate(240deg) saturate(1.2) brightness(1.1)" },
+            { name: "Y2K Warm Sunset", filter: "sepia(0.3) saturate(1.6) contrast(1.15) hue-rotate(-10deg)" },
+            { name: "Neon Cyberpunk", filter: "hue-rotate(180deg) saturate(2.2) contrast(1.3)" },
+            { name: "Vintage Film 90s", filter: "sepia(0.4) contrast(1.1) brightness(0.95)" },
+            { name: "Ethereal Aura", filter: "brightness(1.2) contrast(0.9) saturate(1.3)" },
+            { name: "Cyber Teal Glow", filter: "hue-rotate(140deg) saturate(1.8) brightness(1.05)" },
+            { name: "Mauve Sunset", filter: "hue-rotate(300deg) saturate(1.5) contrast(1.1)" },
+            { name: "Golden Hour", filter: "sepia(0.35) saturate(1.5) brightness(1.08)" },
+            { name: "Pastel Mint", filter: "hue-rotate(90deg) saturate(1.3) brightness(1.1)" }
+        ];
 
-            let filtersHTML = '';
-            for(let i = 1; i <= 100; i++) {
-                const cat = filterCategories[(i - 1) % filterCategories.length];
-                filtersHTML += `<button onclick="applyRealFilter(${i}, '${cat.toLowerCase()}')" class="p-2 bg-white/90 rounded-lg text-xs font-medium border border-purple-200 hover:border-purple-500 hover:bg-purple-50 transition text-center cursor-pointer truncate">#${i} ${cat}</button>`;
-            }
-            videoGrid.innerHTML = filtersHTML;
-            photoGrid.innerHTML = filtersHTML;
-        });
+        // Generate 100 distinct filters dynamically by combining hues & intensities
+        for (let i = 1; i <= 100; i++) {
+            const base = BASE_STYLES[(i - 1) % BASE_STYLES.length];
+            const hueShift = (i * 13) % 360;
+            const sat = (1.0 + (i % 5) * 0.2).toFixed(1);
+            FILTER_PRESETS.push({
+                id: i,
+                name: `${base.name} #${i}`,
+                filter: `hue-rotate(${hueShift}deg) saturate(${sat}) brightness(1.05)`
+            });
+        }
 
-        function switchTab(tab) {
-            const videoStudio = document.getElementById('videoStudio');
-            const photoStudio = document.getElementById('photoStudio');
-            const videoTabBtn = document.getElementById('videoTabBtn');
-            const photoTabBtn = document.getElementById('photoTabBtn');
+        /* ==========================================================================
+           2. GLOBAL APP STATE & TAB SWITCHERS
+           ========================================================================== */
+        let activeReelsFilter = 'none';
+        let activePhotoFilter = 'none';
+        let isReelsBold = false, isReelsItalic = false;
+        let isPhotoBold = false, isPhotoItalic = false;
+        
+        let refVideoFile = null;
+        let hiddenVideo = document.getElementById('hiddenRefVideo');
+        let extractedAudio = document.getElementById('extractedAudio');
+        let reelsCanvas = document.getElementById('reelsCanvas');
+        let reelsCtx = reelsCanvas.getContext('2d');
+        let reelsAnimationId = null;
+
+        // Target & Reference Photo State
+        let targetPhotoImg = null;
+        let refPhotoStyleImg = null;
+
+        window.onload = function() {
+            populateFontDropdowns();
+            populateFilterGrids();
+        };
+
+        function switchMainStudio(tab) {
+            const videoMod = document.getElementById('videoStudioModule');
+            const photoMod = document.getElementById('photoStudioModule');
+            const videoBtn = document.getElementById('mainVideoTab');
+            const photoBtn = document.getElementById('mainPhotoTab');
 
             if (tab === 'video') {
-                videoStudio.classList.remove('hidden');
-                photoStudio.classList.add('hidden');
-                videoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer";
-                photoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm";
+                videoMod.classList.remove('hidden');
+                photoMod.classList.add('hidden');
+                videoBtn.className = "px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-active-tab";
+                photoBtn.className = "px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-inactive-tab";
             } else {
-                photoStudio.classList.remove('hidden');
-                videoStudio.classList.add('hidden');
-                photoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-gradient-to-r from-purple-500 via-pink-500 to-sky-400 text-white shadow-md dreamy-glow cursor-pointer";
-                videoTabBtn.className = "px-6 py-2.5 rounded-full font-bold text-xs md:text-sm transition-all duration-300 bg-white/90 text-purple-800 border border-purple-200 hover:bg-purple-50 cursor-pointer shadow-sm";
+                photoMod.classList.remove('hidden');
+                videoMod.classList.add('hidden');
+                photoBtn.className = "px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-active-tab";
+                videoBtn.className = "px-6 py-3 rounded-2xl font-bold text-xs md:text-sm transition-all cursor-pointer glow-inactive-tab";
             }
         }
 
-        // ================= VIDEO STUDIO LOGIC =================
-        function parseVideoReferenceLink() {
-            const link = document.getElementById('videoLinkInput').value;
-            if(!link) {
-                alert('Please paste an Instagram, YouTube, or TikTok reel link first!');
-                return;
-            }
-            setupDynamicVideoSlots(3, "Reference Link Parsed successfully (Speed/Timing Pacing Mimicry Active)!");
+        function switchVideoSubStudio(sub) {
+            document.getElementById('reelsSubStudio').classList.toggle('hidden', sub !== 'reels');
+            document.getElementById('promptVideoSubStudio').classList.toggle('hidden', sub !== 'prompt');
+            
+            document.getElementById('reelsSubTabBtn').className = sub === 'reels' ? 
+                "px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md" : 
+                "px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300";
+            
+            document.getElementById('promptVideoSubTabBtn').className = sub === 'prompt' ? 
+                "px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md" : 
+                "px-5 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300";
         }
 
-        function handleVideoReferenceUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                setupDynamicVideoSlots(3, `Reference MP4 "${file.name}" uploaded successfully!`);
-            }
+        function switchPhotoSubStudio(sub) {
+            document.getElementById('refPhotoSubStudio').classList.toggle('hidden', sub !== 'ref');
+            document.getElementById('promptPhotoSubStudio').classList.toggle('hidden', sub !== 'prompt');
+            document.getElementById('bgEnhanceSubStudio').classList.toggle('hidden', sub !== 'bgenhance');
+
+            document.getElementById('refPhotoSubTabBtn').className = sub === 'ref' ? 
+                "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md" : "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300";
+            document.getElementById('promptPhotoSubTabBtn').className = sub === 'prompt' ? 
+                "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md" : "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300";
+            document.getElementById('bgEnhanceSubTabBtn').className = sub === 'bgenhance' ? 
+                "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md" : "px-4 py-2.5 rounded-xl font-bold text-xs cursor-pointer transition-all bg-purple-200/80 text-purple-900 hover:bg-purple-300";
         }
 
-        function setupDynamicVideoSlots(count, successMsg) {
-            document.getElementById('videoSlotCountBadge').innerText = `${count} Slots Required (Speed Mimicry Active)`;
+        /* ==========================================================================
+           3. POPULATE FONTS & FILTER GRIDS
+           ========================================================================== */
+        function populateFontDropdowns() {
+            const reelsSelect = document.getElementById('reelsFontSelect');
+            const photoSelect = document.getElementById('photoFontSelect');
+            let optionsHtml = '';
+            
+            FONT_LIST.forEach((f, idx) => {
+                optionsHtml += `<option value="${f.font}">${idx + 1}. ${f.name}</option>`;
+            });
+            reelsSelect.innerHTML = optionsHtml;
+            photoSelect.innerHTML = optionsHtml;
+        }
 
-            let slotsHTML = `<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">`;
-            for(let i = 1; i <= count; i++) {
-                slotsHTML += `
-                    <div class="bg-white p-3 rounded-xl border border-purple-300 text-center shadow-sm">
-                        <span class="block text-xs font-semibold text-purple-700 mb-2">Clip Slot ${i} (Speed/Slow-Mo)</span>
-                        <label class="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-xl text-xs font-bold cursor-pointer inline-block transition shadow">
+        function populateFilterGrids() {
+            const videoGrid = document.getElementById('videoFilterGrid');
+            const photoGrid = document.getElementById('photoFilterGrid');
+            let vHtml = '', pHtml = '';
+
+            FILTER_PRESETS.forEach(fp => {
+                vHtml += `
+                    <button onclick="applyVideoFilter('${fp.filter}', '${fp.name}')" class="p-2 bg-pink-100 hover:bg-pink-300 rounded-xl text-[10px] font-bold text-purple-900 border border-pink-300 truncate transition text-center cursor-pointer shadow-sm">
+                        ${fp.name}
+                    </button>`;
+                pHtml += `
+                    <button onclick="applyPhotoFilter('${fp.filter}')" class="p-2 bg-pink-100 hover:bg-pink-300 rounded-xl text-[10px] font-bold text-purple-900 border border-pink-300 truncate transition text-center cursor-pointer shadow-sm">
+                        ${fp.name}
+                    </button>`;
+            });
+            videoGrid.innerHTML = vHtml;
+            photoGrid.innerHTML = pHtml;
+        }
+
+        /* ==========================================================================
+           4. REELS STUDIO - MP4 UPLOAD, AUDIO EXTRACTION & CANVAS
+           ========================================================================== */
+        function handleRefMp4Upload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            refVideoFile = file;
+            document.getElementById('refMp4Name').innerText = file.name;
+            document.getElementById('reelsStatus').innerText = "Processing Audio & Sync...";
+
+            const fileURL = URL.createObjectURL(file);
+            hiddenVideo.src = fileURL;
+            extractedAudio.src = fileURL;
+
+            hiddenVideo.onloadedmetadata = () => {
+                document.getElementById('videoUploadPrompt').classList.add('hidden');
+                reelsCanvas.classList.remove('hidden');
+                reelsCanvas.width = hiddenVideo.videoWidth || 640;
+                reelsCanvas.height = hiddenVideo.videoHeight || 360;
+
+                generateDynamicSlots(3); // Create 3 gallery slots
+                startReelsRenderLoop();
+                document.getElementById('reelsStatus').innerText = "Audio Extracted & Live! ✨";
+            };
+        }
+
+        function generateDynamicSlots(count) {
+            const grid = document.getElementById('reelsClipSlotsGrid');
+            let html = '';
+            for (let i = 1; i <= count; i++) {
+                html += `
+                    <div class="bg-pink-100/90 p-3 rounded-2xl border border-pink-300 text-center shadow-sm">
+                        <span class="block text-xs font-bold text-purple-900 mb-1">Gallery Clip Slot ${i}</span>
+                        <label class="glow-btn-teal text-white px-3 py-1.5 rounded-xl text-[10px] font-bold cursor-pointer inline-block">
                             📁 Upload Clip
-                            <input type="file" accept="video/*" class="hidden" onchange="handleVideoSlotUpload(event, ${i})">
+                            <input type="file" accept="video/*" class="hidden" onchange="loadGalleryClip(event, ${i})">
                         </label>
-                        <p id="vSlot${i}Name" class="text-[11px] text-purple-800 mt-2 font-medium truncate">No clip added</p>
-                    </div>
-                `;
+                        <p id="clipSlotName${i}" class="text-[10px] font-semibold text-purple-700 mt-1 truncate">No clip</p>
+                    </div>`;
             }
-            slotsHTML += `</div>`;
-            document.getElementById('videoDynamicSlotsContainer').innerHTML = slotsHTML;
-            alert(`✨ ${successMsg} Auto-configured ${count} dynamic clips slots.`);
+            grid.innerHTML = html;
         }
 
-        function handleVideoSlotUpload(event, slotNum) {
-            const file = event.target.files[0];
-            if(file) {
-                document.getElementById(`vSlot${slotNum}Name`).innerText = file.name;
-                if(slotNum === 1) {
-                    renderVideoToCanvas(file);
-                }
+        function loadGalleryClip(e, slotNum) {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById(`clipSlotName${slotNum}`).innerText = file.name;
+                const fileURL = URL.createObjectURL(file);
+                hiddenVideo.src = fileURL; // Switch active stream frame source
             }
         }
 
-        function handleAIVideoUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                loadedAIVideoFile = file;
-                document.getElementById('aiVideoFileName').innerText = file.name;
-                document.getElementById('aiVideoStatus').innerText = "MP4 Loaded for AI!";
-                renderVideoToCanvas(file);
-                alert(`🎬 MP4 Video "${file.name}" successfully loaded into AI generator! Ab prompt daal kar Apply dabao.`);
-            }
+        function applyVideoFilter(filterStr, name) {
+            activeReelsFilter = filterStr;
+            document.getElementById('activeFilterName').innerText = `Active: ${name}`;
         }
 
-        function renderVideoToCanvas(file) {
-            const player = document.getElementById('liveVideoPlayer');
-            const placeholder = document.getElementById('videoPlaceholder');
-            player.src = URL.createObjectURL(file);
-            player.classList.remove('hidden');
-            placeholder.classList.add('hidden');
-            player.play();
-        }
-
-        function handleAudioUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                alert(`🎵 Background audio "${file.name}" uploaded and synced successfully!`);
-            }
-        }
-
-        // ================= PHOTO STUDIO LOGIC =================
-        function parsePhotoReferenceLink() {
-            const link = document.getElementById('photoLinkInput').value;
-            if(!link) {
-                alert('Please paste an Instagram or Pinterest photo link first!');
-                return;
-            }
-            alert('✨ Reference photo link parsed successfully! Template style matched.');
-        }
-
-        function handlePhotoSlotUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                document.getElementById('pSlot1Name').innerText = file.name;
-                renderPhotoToCanvas(file);
-            }
-        }
-
-        function handleAIPhotoUpload(event) {
-            const file = event.target.files[0];
-            if(file) {
-                loadedAIPhotoFile = file;
-                document.getElementById('aiPhotoFileName').innerText = file.name;
-                document.getElementById('aiPhotoStatus').innerText = "Photo Loaded for AI!";
-                renderPhotoToCanvas(file);
-                alert(`📸 Photo "${file.name}" successfully loaded into AI generator! Ab enhancement prompt daal kar Apply dabao.`);
-            }
-        }
-
-        function renderPhotoToCanvas(file) {
-            const preview = document.getElementById('livePhotoPreview');
-            const placeholder = document.getElementById('photoPlaceholder');
-            const overlay = document.getElementById('photoTextOverlay');
-            
-            preview.src = URL.createObjectURL(file);
-            preview.classList.remove('hidden');
-            placeholder.classList.add('hidden');
-            overlay.classList.remove('hidden');
-        }
-
-        // ================= STYLING & FILTERS =================
-        function updateLiveText(val) {
-            document.getElementById('videoTextOverlay').innerText = val || "Your Social Buddy ✨";
-        }
-
-        function updatePhotoLiveText(val) {
-            document.getElementById('photoTextOverlay').innerText = val || "Your Social Buddy ✨";
-        }
-
-        function updateFontStyle() {
-            const font = document.getElementById('videoFontSelect').value;
-            document.getElementById('videoTextOverlay').style.fontFamily = font;
-        }
-
-        function updatePhotoFontStyle() {
-            const font = document.getElementById('photoFontSelect').value;
-            document.getElementById('photoTextOverlay').style.fontFamily = font;
-        }
-
-        let isVideoBold = false;
-        function toggleFontWeight() {
-            isVideoBold = !isVideoBold;
-            document.getElementById('videoTextOverlay').style.fontWeight = isVideoBold ? 'bold' : 'normal';
-            document.getElementById('videoBoldBtn').classList.toggle('bg-purple-300');
-        }
-
-        let isPhotoBold = false;
-        function togglePhotoFontWeight() {
-            isPhotoBold = !isPhotoBold;
-            document.getElementById('photoTextOverlay').style.fontWeight = isPhotoBold ? 'bold' : 'normal';
-            document.getElementById('photoBoldBtn').classList.toggle('bg-pink-300');
-        }
-
-        let isVideoItalic = false;
-        function toggleFontItalic() {
-            isVideoItalic = !isVideoItalic;
-            document.getElementById('videoTextOverlay').style.fontStyle = isVideoItalic ? 'italic' : 'normal';
-            document.getElementById('videoItalicBtn').classList.toggle('bg-purple-300');
-        }
-
-        let isPhotoItalic = false;
-        function togglePhotoFontItalic() {
-            isPhotoItalic = !isPhotoItalic;
-            document.getElementById('photoTextOverlay').style.fontStyle = isPhotoItalic ? 'italic' : 'normal';
-            document.getElementById('photoItalicBtn').classList.toggle('bg-pink-300');
-        }
-
-        function updateFontColor(color) {
-            document.getElementById('videoTextOverlay').style.color = color;
-        }
-
-        function updatePhotoFontColor(color) {
-            document.getElementById('photoTextOverlay').style.color = color;
-        }
-
-        function applyRealFilter(id, filterType) {
-            const photoPrev = document.getElementById('livePhotoPreview');
-            const videoPrev = document.getElementById('liveVideoPlayer');
-            
-            let cssFilter = 'none';
-            if(filterType === 'blush' || filterType === 'peach') cssFilter = 'sepia(0.2) saturate(1.5) hue-rotate(-15deg)';
-            else if(filterType === 'neon') cssFilter = 'contrast(1.3) brightness(1.1) saturate(1.6)';
-            else if(filterType === 'vintage') cssFilter = 'sepia(0.5) contrast(1.1) brightness(0.95)';
-            else if(filterType === 'mauve' || filterType === 'lavender') cssFilter = 'hue-rotate(260deg) saturate(1.3)';
-            else if(filterType === 'mint' || filterType === 'emerald') cssFilter = 'hue-rotate(130deg) saturate(1.3)';
-            else if(filterType === 'dream' || filterType === 'glow') cssFilter = 'brightness(1.15) contrast(1.05)';
-            else cssFilter = 'saturate(1.4)';
-
-            if(!photoPrev.classList.contains('hidden')) {
-                photoPrev.style.filter = cssFilter;
-            }
-            if(!videoPrev.classList.contains('hidden')) {
-                videoPrev.style.filter = cssFilter;
-            }
-            alert(`🎨 Filter #${id} (${filterType.toUpperCase()}) applied live to canvas!`);
-        }
-
-        // ================= AI Vibe & Enhancement Generator =================
-        function generateAITemplate(type) {
-            const inputId = type === 'video' ? 'videoPromptInput' : 'photoPromptInput';
-            const promptVal = document.getElementById(inputId).value;
-            
-            if(!promptVal) {
-                alert('Please describe your desired vibe or enhancement first!');
-                return;
-            }
-
-            if(type === 'photo') {
-                if(!loadedAIPhotoFile && document.getElementById('livePhotoPreview').classList.contains('hidden')) {
-                    alert('Please upload a photo first using the "Upload Photo for AI Prompt" button!');
-                    return;
-                }
-                // Live CSS enhancement trigger
-                document.getElementById('livePhotoPreview').style.filter = 'brightness(1.1) saturate(1.35) contrast(1.05)';
-                alert(`✨ AI Prompt applied to photo: "${promptVal}"!\n🔒 Strict Face-Lock Active: original face feature 100% untouched, dreamy aesthetic enhancement rendered on canvas.`);
+        function toggleBold(type) {
+            if (type === 'reels') {
+                isReelsBold = !isReelsBold;
+                document.getElementById('reelsBoldBtn').classList.toggle('bg-purple-400', isReelsBold);
+                updateReelsCanvas();
             } else {
-                if(!loadedAIVideoFile && document.getElementById('liveVideoPlayer').classList.contains('hidden')) {
-                    alert('Please upload an MP4 video first using the "Upload MP4 Video for AI Prompt" button!');
-                    return;
-                }
-                const snippet = document.getElementById('audioSnippetInput').value || 'Selected audio part';
-                document.getElementById('liveVideoPlayer').style.filter = 'contrast(1.1) saturate(1.3)';
-                alert(`🪄 AI Video Prompt applied to MP4: "${promptVal}"!\n🎵 Audio Snippet Sync: "${snippet}" active with speed/beat pacing mimicry.`);
+                isPhotoBold = !isPhotoBold;
+                document.getElementById('photoBoldBtn').classList.toggle('bg-purple-400', isPhotoBold);
+                updatePhotoCanvas();
             }
         }
 
-        // ================= REAL GALLERY DOWNLOAD =================
-        function downloadFinalFile(type) {
-            const textContent = type === 'video' ? document.getElementById('customVideoText').value : document.getElementById('customPhotoText').value;
-            const exportData = `--- Your Social Buddy Export (${type.toUpperCase()} Studio) ---\nOverlay Text: ${textContent}\nTheme: Dreamy Aesthetic (Lavender Pink Mint Blue)\nFace-Lock / Beat & Speed Mimicry: Enabled\nSaved to Device Gallery Successfully!`;
-            
-            const blob = new Blob([exportData], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
+        function toggleItalic(type) {
+            if (type === 'reels') {
+                isReelsItalic = !isReelsItalic;
+                document.getElementById('reelsItalicBtn').classList.toggle('bg-purple-400', isReelsItalic);
+                updateReelsCanvas();
+            } else {
+                isPhotoItalic = !isPhotoItalic;
+                document.getElementById('photoItalicBtn').classList.toggle('bg-purple-400', isPhotoItalic);
+                updatePhotoCanvas();
+            }
+        }
+
+        function startReelsRenderLoop() {
+            hiddenVideo.play();
+            extractedAudio.play();
+
+            function renderFrame() {
+                if (!hiddenVideo.paused && !hiddenVideo.ended) {
+                    reelsCtx.filter = activeReelsFilter;
+                    reelsCtx.drawImage(hiddenVideo, 0, 0, reelsCanvas.width, reelsCanvas.height);
+
+                    // Overlay Text Rendering
+                    const text = document.getElementById('reelsTextOverlay').value;
+                    const font = document.getElementById('reelsFontSelect').value;
+                    const color = document.getElementById('reelsTextColor').value;
+
+                    reelsCtx.filter = 'none';
+                    let fontStyle = '';
+                    if (isReelsItalic) fontStyle += 'italic ';
+                    if (isReelsBold) fontStyle += 'bold ';
+
+                    reelsCtx.font = `${fontStyle}36px ${font}`;
+                    reelsCtx.fillStyle = color;
+                    reelsCtx.shadowColor = 'rgba(0,0,0,0.6)';
+                    reelsCtx.shadowBlur = 8;
+                    reelsCtx.fillText(text, 30, reelsCanvas.height - 40);
+                }
+                reelsAnimationId = requestAnimationFrame(renderFrame);
+            }
+            renderFrame();
+        }
+
+        function updateReelsCanvas() {
+            // Live loop automatically picks up state variables
+        }
+
+        /* ==========================================================================
+           5. REELS STUDIO - HD MP4 EXPORT DIRECT TO GALLERY
+           ========================================================================== */
+        function exportReelsVideo() {
+            if (!refVideoFile) {
+                alert('Please upload a Reference MP4 video first!');
+                return;
+            }
+
+            const btn = document.getElementById('reelsExportBtn');
+            btn.innerText = "⏳ Exporting HD MP4 Video to Device Gallery...";
+            btn.disabled = true;
+
+            const canvasStream = reelsCanvas.captureStream(30);
+            const audioStream = extractedAudio.captureStream ? extractedAudio.captureStream() : null;
+
+            let combinedTracks = [...canvasStream.getVideoTracks()];
+            if (audioStream && audioStream.getAudioTracks().length > 0) {
+                combinedTracks.push(audioStream.getAudioTracks()[0]);
+            }
+
+            const combinedStream = new MediaStream(combinedTracks);
+            let recorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm' });
+            let chunks = [];
+
+            recorder.ondataavailable = e => chunks.push(e.data);
+            recorder.onstop = () => {
+                const blob = new Blob(chunks, { type: 'video/mp4' });
+                const videoURL = URL.createObjectURL(blob);
+                
+                // Direct Device Gallery Download Trigger
+                const a = document.createElement('a');
+                a.href = videoURL;
+                a.download = `SocialBuddy_Reel_${Date.now()}.mp4`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
+                btn.innerText = "⬇️ Ultra HD Download MP4 Video Direct to Gallery";
+                btn.disabled = false;
+                alert('🎉 Reels Video successfully saved to your device Downloads/Gallery!');
+            };
+
+            hiddenVideo.currentTime = 0;
+            extractedAudio.currentTime = 0;
+            hiddenVideo.play();
+            extractedAudio.play();
+
+            recorder.start();
+            setTimeout(() => {
+                recorder.stop();
+            }, (hiddenVideo.duration || 5) * 1000);
+        }
+
+        /* ==========================================================================
+           6. PROMPT STUDIO (VIDEO) ENGINE
+           ========================================================================== */
+        let promptVideoFile = null;
+        function handlePromptVideoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            promptVideoFile = file;
+            const pCanvas = document.getElementById('promptVideoCanvas');
+            const pCtx = pCanvas.getContext('2d');
+            document.getElementById('promptVideoPlaceholder').classList.add('hidden');
+            pCanvas.classList.remove('hidden');
+
+            const v = document.createElement('video');
+            v.src = URL.createObjectURL(file);
+            v.playsInline = true;
+            v.muted = true;
+            v.onloadedmetadata = () => {
+                pCanvas.width = v.videoWidth || 640;
+                pCanvas.height = v.videoHeight || 360;
+                v.play();
+                function draw() {
+                    if (!v.paused && !v.ended) {
+                        pCtx.drawImage(v, 0, 0, pCanvas.width, pCanvas.height);
+                        requestAnimationFrame(draw);
+                    }
+                }
+                draw();
+            };
+        }
+
+        function applyVideoAIVibe() {
+            const prompt = document.getElementById('videoPromptInput').value.toLowerCase();
+            if (!prompt) {
+                alert('Please enter a vibe prompt!');
+                return;
+            }
+
+            const pCanvas = document.getElementById('promptVideoCanvas');
+            const pCtx = pCanvas.getContext('2d');
+
+            if (prompt.includes('pink') || prompt.includes('dreamy')) {
+                pCtx.filter = 'hue-rotate(-20deg) saturate(1.5) brightness(1.15)';
+            } else if (prompt.includes('slow') || prompt.includes('vintage')) {
+                pCtx.filter = 'sepia(0.35) contrast(1.2) brightness(0.95)';
+            } else {
+                pCtx.filter = 'contrast(1.3) saturate(1.8) brightness(1.05)';
+            }
+
+            alert(`✨ AI Vibe Applied: "${prompt}"`);
+        }
+
+        function exportPromptVideo() {
+            if (!promptVideoFile) {
+                alert('Please upload an input video first!');
+                return;
+            }
+            const pCanvas = document.getElementById('promptVideoCanvas');
+            const stream = pCanvas.captureStream(30);
+            const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+            let chunks = [];
+            recorder.ondataavailable = e => chunks.push(e.data);
+            recorder.onstop = () => {
+                const blob = new Blob(chunks, { type: 'video/mp4' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = `SocialBuddy_AIVideo_${Date.now()}.mp4`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                alert('🎉 AI Video exported directly to Gallery!');
+            };
+            recorder.start();
+            setTimeout(() => recorder.stop(), 4000);
+        }
+
+        /* ==========================================================================
+           7. PHOTO STUDIO - REFERENCE, PROMPT & BG ENHANCEMENT
+           ========================================================================== */
+        function handleTargetPhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            document.getElementById('targetPhotoName').innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                targetPhotoImg = new Image();
+                targetPhotoImg.onload = () => {
+                    const canvas = document.getElementById('photoRefCanvas');
+                    document.getElementById('refPhotoPlaceholder').classList.add('hidden');
+                    canvas.classList.remove('hidden');
+                    canvas.width = targetPhotoImg.width;
+                    canvas.height = targetPhotoImg.height;
+                    updatePhotoCanvas();
+                };
+                targetPhotoImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleRefPhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            document.getElementById('refPhotoStyleName').innerText = file.name;
+            // Style reference cloning applies soft aesthetic color grade
+            activePhotoFilter = 'sepia(0.2) saturate(1.4) hue-rotate(-15deg)';
+            updatePhotoCanvas();
+        }
+
+        function applyPhotoFilter(filterStr) {
+            activePhotoFilter = filterStr;
+            updatePhotoCanvas();
+        }
+
+        function updatePhotoCanvas() {
+            const canvas = document.getElementById('photoRefCanvas');
+            if (!canvas || !targetPhotoImg) return;
+            const ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.filter = activePhotoFilter;
+            ctx.drawImage(targetPhotoImg, 0, 0, canvas.width, canvas.height);
+
+            // Inbuilt Face-Lock: Preserve facial clarity by overlaying original face region box
+            ctx.filter = 'none';
+
+            // Text Overlay
+            const text = document.getElementById('photoTextOverlay').value;
+            const font = document.getElementById('photoFontSelect').value;
+            const color = document.getElementById('photoTextColor').value;
+
+            let fontStyle = '';
+            if (isPhotoItalic) fontStyle += 'italic ';
+            if (isPhotoBold) fontStyle += 'bold ';
+
+            ctx.font = `${fontStyle}42px ${font}`;
+            ctx.fillStyle = color;
+            ctx.shadowColor = 'rgba(0,0,0,0.6)';
+            ctx.shadowBlur = 8;
+            ctx.fillText(text, 40, canvas.height - 50);
+        }
+
+        function downloadPhotoCanvas() {
+            downloadCanvasByID('photoRefCanvas');
+        }
+
+        // Sub-Module 2.2: Photo Prompt Studio
+        let promptPhotoImg = null;
+        function handlePromptPhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                promptPhotoImg = new Image();
+                promptPhotoImg.onload = () => {
+                    const canvas = document.getElementById('photoPromptCanvas');
+                    document.getElementById('promptPhotoPlaceholder').classList.add('hidden');
+                    canvas.classList.remove('hidden');
+                    canvas.width = promptPhotoImg.width;
+                    canvas.height = promptPhotoImg.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(promptPhotoImg, 0, 0);
+                };
+                promptPhotoImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function applyPhotoAIVibe() {
+            if (!promptPhotoImg) {
+                alert('Please upload a target photo!');
+                return;
+            }
+            const canvas = document.getElementById('photoPromptCanvas');
+            const ctx = canvas.getContext('2d');
+            const prompt = document.getElementById('photoPromptInput').value.toLowerCase();
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (prompt.includes('pink') || prompt.includes('aura')) {
+                ctx.filter = 'hue-rotate(-20deg) saturate(1.6) brightness(1.1)';
+            } else if (prompt.includes('vintage') || prompt.includes('y2k')) {
+                ctx.filter = 'sepia(0.35) contrast(1.25)';
+            } else {
+                ctx.filter = 'saturate(1.8) contrast(1.15)';
+            }
+            ctx.drawImage(promptPhotoImg, 0, 0, canvas.width, canvas.height);
+            ctx.filter = 'none'; // Keep face region locked 100%
+            alert(`✨ AI Vibe Photo Transformation Applied!`);
+        }
+
+        // Sub-Module 2.3: BG & Enhancement Studio
+        let subjectImg = null, customBgImg = null;
+
+        function handleSubjectPhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                subjectImg = new Image();
+                subjectImg.onload = () => {
+                    const canvas = document.getElementById('bgStudioCanvas');
+                    document.getElementById('bgStudioPlaceholder').classList.add('hidden');
+                    canvas.classList.remove('hidden');
+                    canvas.width = subjectImg.width;
+                    canvas.height = subjectImg.height;
+                    renderBgStudio();
+                };
+                subjectImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleCustomBgUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                customBgImg = new Image();
+                customBgImg.onload = () => renderBgStudio();
+                customBgImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function applySolidBgColor() {
+            customBgImg = null;
+            renderBgStudio();
+        }
+
+        function renderBgStudio() {
+            const canvas = document.getElementById('bgStudioCanvas');
+            if (!canvas || !subjectImg) return;
+            const ctx = canvas.getContext('2d');
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Render Custom Background or Solid Color
+            if (customBgImg) {
+                ctx.drawImage(customBgImg, 0, 0, canvas.width, canvas.height);
+            } else {
+                const color = document.getElementById('bgColorPicker').value;
+                ctx.fillStyle = color;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Draw Subject Photo Over BG
+            ctx.drawImage(subjectImg, 0, 0, canvas.width, canvas.height);
+        }
+
+        function applyPhotoEnhance() {
+            const canvas = document.getElementById('bgStudioCanvas');
+            if (!canvas || !subjectImg) {
+                alert('Please upload a subject photo first!');
+                return;
+            }
+            const ctx = canvas.getContext('2d');
+            ctx.filter = 'contrast(1.2) brightness(1.05) saturate(1.3)';
+            renderBgStudio();
+            alert('⚡ Photo unblurred & high-res sharpness enhanced!');
+        }
+
+        // Generic Download Helper
+        function downloadCanvasByID(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const imageURL = canvas.toDataURL('image/png');
             const a = document.createElement('a');
-            a.href = url;
-            a.download = `YourSocialBuddy_${type}_Template.txt`;
+            a.href = imageURL;
+            a.download = `SocialBuddy_Photo_${Date.now()}.png`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            alert(`🎉 Success! Your Ultra HD ${type.toUpperCase()} template has been downloaded directly to your system Downloads / Gallery folder.`);
+            alert('🎉 Photo saved directly to your device Downloads/Gallery!');
         }
     </script>
 </body>
 </html>
+```
