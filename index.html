@@ -6,231 +6,40 @@
   <title>Your Social Buddy - Aesthetic Creative Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cinzel:wght@600&family=Comfortaa:wght@600&family=Dancing+Script:wght@600&family=Great+Vibes&family=Monoton&family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;600&family=Sacramento&family=Space+Grotesk:wght@600&family=Syne:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cinzel:wght@600&family=Comfortaa:wght@600&family=Dancing+Script:wght@600&family=Great+Vibes&family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;600&family=Sacramento&family=Syne:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-gradient: linear-gradient(135deg, #f3e8ff 0%, #ffe4e6 50%, #e0f2fe 100%);
-      --card-bg: rgba(255, 240, 245, 0.75);
-      --card-border: rgba(255, 255, 255, 0.8);
+      --card-bg: rgba(255, 240, 245, 0.9);
       --primary-neon: #ec4899;
       --secondary-neon: #8b5cf6;
       --text-main: #4c1d95;
-      --text-muted: #6b21a8;
       --neon-shadow: 0 0 15deg rgba(236, 72, 153, 0.4), 0 0 25deg rgba(139, 92, 246, 0.3);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-    body {
-      background: var(--bg-gradient);
-      background-attachment: fixed;
-      color: var(--text-main);
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    header h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.4rem;
-      background: linear-gradient(90deg, #db2777, #7c3aed, #2563eb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
-    }
-    header p { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
-
-    .nav-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-    .tab-btn {
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      background: rgba(255, 255, 255, 0.6);
-      color: var(--text-main);
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: all 0.3s ease;
-    }
-    .tab-btn.active {
-      background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
-      color: white;
-      box-shadow: var(--neon-shadow);
-      transform: translateY(-2px);
-    }
-
+    body { background: var(--bg-gradient); background-attachment: fixed; color: var(--text-main); min-height: 100vh; padding: 20px; }
+    header { text-align: center; margin-bottom: 25px; }
+    header h1 { font-family: 'Syne', sans-serif; font-size: 2.4rem; background: linear-gradient(90deg, #db2777, #7c3aed, #2563eb); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    header p { color: #6b21a8; font-size: 0.95rem; font-weight: 600; }
+    .nav-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+    .tab-btn { padding: 12px 28px; border: none; border-radius: 30px; background: rgba(255, 255, 255, 0.7); color: var(--text-main); font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); }
+    .tab-btn.active { background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon)); color: white; box-shadow: var(--neon-shadow); }
     .studio-module { display: none; }
     .studio-module.active { display: block; }
-
-    .sub-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .sub-tab-btn {
-      padding: 8px 18px;
-      border: 2px solid transparent;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.4);
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 0.88rem;
-      cursor: pointer;
-    }
-    .sub-tab-btn.active {
-      background: #fbcfe8;
-      border-color: var(--primary-neon);
-      color: #9d174d;
-      box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; }
     @media (max-width: 850px) { .grid-container { grid-template-columns: 1fr; } }
-
-    .panel {
-      background: var(--card-bg);
-      border: 2px solid var(--card-border);
-      border-radius: 24px;
-      padding: 20px;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.1);
-    }
-    .panel h2 {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-      color: #5b21b6;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .canvas-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 9/16;
-      max-height: 520px;
-      background: rgba(0, 0, 0, 0.05);
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px dashed rgba(139, 92, 246, 0.3);
-    }
+    .panel { background: var(--card-bg); border: 2px solid rgba(255, 255, 255, 0.9); border-radius: 24px; padding: 20px; backdrop-filter: blur(16px); box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15); }
+    .panel h2 { font-size: 1.15rem; margin-bottom: 15px; color: #5b21b6; }
+    .canvas-wrapper { position: relative; width: 100%; aspect-ratio: 9/16; max-height: 500px; background: #0f051d; border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(139, 92, 246, 0.4); }
     canvas { max-width: 100%; max-height: 100%; object-fit: contain; }
-
     .control-group { margin-bottom: 16px; }
-    .control-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #6b21a8;
-    }
-
-    input[type="file"], input[type="text"], select {
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 2px solid #f472b6;
-      background: rgba(255, 255, 255, 0.9);
-      color: var(--text-main);
-      font-size: 0.9rem;
-      outline: none;
-    }
-    input[type="text"]:focus, select:focus {
-      border-color: var(--secondary-neon);
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
-    }
-
-    .action-btn {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 16px;
-      background: linear-gradient(90deg, #ec4899, #8b5cf6);
-      color: white;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: var(--neon-shadow);
-      transition: transform 0.2s;
-    }
-    .action-btn:hover { transform: scale(1.02); }
-
-    .filter-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 10px;
-      max-height: 180px;
-      overflow-y: auto;
-      padding-right: 5px;
-    }
-    .filter-card {
-      padding: 8px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 2px solid transparent;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .filter-card.active {
-      border-color: var(--primary-neon);
-      background: #fce7f3;
-      color: #be185d;
-    }
-
-    .text-styling-bar {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .style-btn {
-      padding: 6px 12px;
-      border: 1px solid #f472b6;
-      border-radius: 8px;
-      background: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .style-btn.active { background: #ec4899; color: white; }
-
-    .dynamic-slots {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-height: 140px;
-      overflow-y: auto;
-    }
-    .slot-item {
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      font-size: 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .control-group label { display: block; font-size: 0.83rem; font-weight: 700; margin-bottom: 6px; color: #6b21a8; }
+    input[type="file"], input[type="text"], select { width: 100%; padding: 10px 14px; border-radius: 14px; border: 2px solid #f472b6; background: rgba(255, 255, 255, 0.95); color: var(--text-main); font-size: 0.88rem; outline: none; }
+    .action-btn { width: 100%; padding: 14px; border: none; border-radius: 16px; background: linear-gradient(90deg, #ec4899, #8b5cf6); color: white; font-weight: 700; cursor: pointer; box-shadow: var(--neon-shadow); }
+    .filter-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-height: 160px; overflow-y: auto; }
+    .filter-card { padding: 10px 6px; background: linear-gradient(135deg, #ffffff, #fce7f3); border: 2px solid #f472b6; border-radius: 10px; text-align: center; font-size: 0.72rem; font-weight: 700; cursor: pointer; color: #9d174d; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .filter-card.active { border-color: var(--primary-neon); background: var(--primary-neon); color: white; box-shadow: 0 0 10px rgba(236,72,153,0.5); }
+    .slot-item { padding: 8px 12px; background: rgba(255, 255, 255, 0.9); border-radius: 10px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border: 1px solid #f472b6; }
   </style>
 </head>
 <body>
@@ -247,14 +56,9 @@
 
   <!-- VIDEO STUDIO -->
   <div id="video-studio" class="studio-module active">
-    <div class="sub-tabs">
-      <button class="sub-tab-btn active" onclick="switchSubTab('video', 'reels-studio')">🎥 Reels Studio</button>
-      <button class="sub-tab-btn" onclick="switchSubTab('video', 'video-prompt-studio')">🪄 Prompt Studio</button>
-    </div>
-
     <div class="grid-container">
       <div class="panel">
-        <h2>✨ Preview</h2>
+        <h2>✨ Video Preview (Blank Until Slots Ready)</h2>
         <div class="canvas-wrapper">
           <canvas id="videoCanvas" width="720" height="1280"></canvas>
         </div>
@@ -262,50 +66,27 @@
       </div>
 
       <div class="panel">
-        <!-- REELS STUDIO SUBMODULE -->
-        <div id="reels-studio" class="submodule-content">
-          <h2>🎬 Reference & Audio Setup</h2>
-          <div class="control-group">
-            <label>Upload Reference MP4 (Auto Beats & Audio)</label>
-            <input type="file" id="refVideoInput" accept="video/mp4" onchange="loadRefVideo(event)">
-          </div>
+        <h2>🎬 Reference Video & Muted Slots</h2>
+        <div class="control-group">
+          <label>1. Upload Reference MP4 (Sets Duration, Speed, Lightning & Audio)</label>
+          <input type="file" accept="video/mp4" onchange="loadRefVideoStructure(event)">
+        </div>
 
-          <div class="control-group">
-            <label>Dynamic Clip Slots</label>
-            <div id="videoSlotsContainer" class="dynamic-slots">
-              <div class="slot-item"><span>Slot 1 (Full Track)</span><input type="file" accept="video/*" onchange="loadSlotClip(0, event)"></div>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label>100+ Pro Aesthetic Filters</label>
-            <div class="filter-grid" id="videoFilterGrid"></div>
-          </div>
-
-          <div class="control-group">
-            <label>50 Aesthetic Fonts Overlay</label>
-            <select id="videoFontSelect" onchange="updateVideoText()"></select>
-            <input type="text" id="videoTextInput" placeholder="Enter caption..." style="margin-top:6px;" oninput="updateVideoText()">
-            <div class="text-styling-bar">
-              <input type="color" id="videoTextColor" value="#ffffff" onchange="updateVideoText()">
-              <button class="style-btn" id="videoBoldBtn" onclick="toggleStyle('bold', 'video')">B</button>
-              <button class="style-btn" id="videoItalicBtn" onclick="toggleStyle('italic', 'video')">I</button>
-            </div>
+        <div class="control-group">
+          <label>2. Dynamic Clip Slots (Automatically Muted)</label>
+          <div id="videoSlotsContainer" class="dynamic-slots">
+            <p style="font-size: 0.78rem; color: #6b21a8;">Upload reference video first to generate matching slots.</p>
           </div>
         </div>
 
-        <!-- VIDEO PROMPT STUDIO -->
-        <div id="video-prompt-studio" class="submodule-content" style="display:none;">
-          <h2>🪄 AI Video Vibe Engine</h2>
-          <div class="control-group">
-            <label>Upload Target MP4 Video</label>
-            <input type="file" accept="video/*" onchange="loadPromptVideo(event)">
-          </div>
-          <div class="control-group">
-            <label>Describe Your Aesthetic Vibe</label>
-            <input type="text" id="videoPromptInput" placeholder="e.g. Dreamy pink glow, 90s vintage film, golden hour sunset...">
-          </div>
-          <button class="action-btn" onclick="applyVideoPrompt()">✨ Apply Vibe Transformation</button>
+        <div class="control-group">
+          <label>Pro Aesthetic Filters</label>
+          <div class="filter-grid" id="videoFilterGrid"></div>
+        </div>
+
+        <div class="control-group">
+          <label>Caption Text</label>
+          <input type="text" id="videoTextInput" placeholder="Enter caption..." oninput="renderVideoFrame()">
         </div>
       </div>
     </div>
@@ -313,15 +94,9 @@
 
   <!-- PHOTO STUDIO -->
   <div id="photo-studio" class="studio-module">
-    <div class="sub-tabs">
-      <button class="sub-tab-btn active" onclick="switchSubTab('photo', 'ref-photo-studio')">🖼️ Reference Photo Studio</button>
-      <button class="sub-tab-btn" onclick="switchSubTab('photo', 'photo-prompt-studio')">🪄 Prompt Studio</button>
-      <button class="sub-tab-btn" onclick="switchSubTab('photo', 'bg-enhance-studio')">🎨 BG & Enhance Studio</button>
-    </div>
-
     <div class="grid-container">
       <div class="panel">
-        <h2>✨ Preview</h2>
+        <h2>✨ Photo Preview</h2>
         <div class="canvas-wrapper">
           <canvas id="photoCanvas" width="1080" height="1920"></canvas>
         </div>
@@ -329,102 +104,42 @@
       </div>
 
       <div class="panel">
-        <!-- REFERENCE PHOTO STUDIO -->
-        <div id="ref-photo-studio" class="submodule-content">
-          <h2>🖼️ Style Clone & Filters</h2>
-          <div class="control-group">
-            <label>Upload Target Photo</label>
-            <input type="file" accept="image/*" onchange="loadPhoto(event, 'target')">
-          </div>
-          <div class="control-group">
-            <label>Upload Reference Photo (Clone Aesthetic Style)</label>
-            <input type="file" accept="image/*" onchange="loadPhoto(event, 'ref')">
-          </div>
-
-          <div class="control-group">
-            <label>100+ Pro Aesthetic Filters</label>
-            <div class="filter-grid" id="photoFilterGrid"></div>
-          </div>
-
-          <div class="control-group">
-            <label>50 Aesthetic Fonts Overlay</label>
-            <select id="photoFontSelect" onchange="updatePhotoText()"></select>
-            <input type="text" id="photoTextInput" placeholder="Add aesthetic caption..." style="margin-top:6px;" oninput="updatePhotoText()">
-            <div class="text-styling-bar">
-              <input type="color" id="photoTextColor" value="#ffffff" onchange="updatePhotoText()">
-              <button class="style-btn" id="photoBoldBtn" onclick="toggleStyle('bold', 'photo')">B</button>
-              <button class="style-btn" id="photoItalicBtn" onclick="toggleStyle('italic', 'photo')">I</button>
-            </div>
-          </div>
+        <h2>🖼️ Exact Style Mimic & Enhancer</h2>
+        <div class="control-group">
+          <label>Upload Target Photo</label>
+          <input type="file" accept="image/*" onchange="loadPhoto(event, 'target')">
         </div>
-
-        <!-- PHOTO PROMPT STUDIO -->
-        <div id="photo-prompt-studio" class="submodule-content" style="display:none;">
-          <h2>🪄 AI Photo Transformation</h2>
-          <div class="control-group">
-            <label>Upload Photo</label>
-            <input type="file" accept="image/*" onchange="loadPhoto(event, 'prompt')">
-          </div>
-          <div class="control-group">
-            <label>Describe Desired Aesthetic Transformation</label>
-            <input type="text" id="photoPromptInput" placeholder="e.g. Soft dreamy pink lavender aura, cyan cyberpunk glow...">
-          </div>
-          <button class="action-btn" onclick="applyPhotoPrompt()">✨ Render AI Prompt Style</button>
+        <div class="control-group">
+          <label>Upload Reference Photo (Exact Style Transfer)</label>
+          <input type="file" accept="image/*" onchange="loadPhoto(event, 'ref')">
         </div>
-
-        <!-- BG & ENHANCE STUDIO -->
-        <div id="bg-enhance-studio" class="submodule-content" style="display:none;">
-          <h2>🎨 Background & Enhancement</h2>
-          <div class="control-group">
-            <label>Upload Subject Photo</label>
-            <input type="file" accept="image/*" onchange="loadPhoto(event, 'bgSubject')">
-          </div>
-          <div class="control-group">
-            <label>Replace BG with Solid Color</label>
-            <input type="color" id="bgColorPicker" value="#f3e8ff" onchange="renderBGColorChange()">
-          </div>
-          <div class="control-group">
-            <label>Or Upload Custom Background Image</label>
-            <input type="file" accept="image/*" onchange="loadPhoto(event, 'customBg')">
-          </div>
-          <button class="action-btn" style="margin-top: 10px;" onclick="enhancePhoto()">🪄 Photo Enhancer & Unblur</button>
+        <div class="control-group">
+          <label>Pro Aesthetic Filters</label>
+          <div class="filter-grid" id="photoFilterGrid"></div>
         </div>
+        <div class="control-group">
+          <label>AI Prompt Studio (Strict Description Match)</label>
+          <input type="text" id="photoPromptInput" placeholder="e.g. dreamy pink aura, cyber blue..." oninput="applyPhotoPrompt()">
+        </div>
+        <button class="action-btn" style="background: linear-gradient(90deg, #8b5cf6, #3b82f6); margin-top: 5px;" onclick="enhancePhotoUnblur()">🪄 HD Unblur & Enhancer</button>
       </div>
     </div>
   </div>
 
   <script>
-    const fontList = [
-      "Caveat", "Cinzel", "Comfortaa", "Dancing Script", "Great Vibes", "Monoton", "Pacifico", "Playfair Display", "Poppins", "Sacramento",
-      "Space Grotesk", "Syne", "Arial", "Verdana", "Georgia", "Courier New", "Impact", "Trebuchet MS", "Comic Sans MS", "Times New Roman",
-      "Lucida Console", "Garamond", "Monospace", "Cursive", "Fantasy", "Sans-Serif", "Serif", "System-UI", "Segoe UI", "Tahoma",
-      "BlinkMacSystemFont", "Roboto", "Open Sans", "Lato", "Montserrat", "Oswald", "Raleway", "PT Sans", "Merriweather", "Noto Sans",
-      "Nunito", "Ubuntu", "Rubik", "Play", "Kanit", "Lora", "Fira Sans", "Quicksand", "Work Sans", "Inconsolata"
-    ];
-
     const filterPresets = [
       { name: "Original", filter: "none" },
       { name: "Y2K Pastel", filter: "brightness(1.08) contrast(1.05) saturate(1.35) hue-rotate(-10deg)" },
       { name: "Dreamy Lavender", filter: "brightness(1.05) contrast(0.95) saturate(1.2) hue-rotate(15deg)" },
       { name: "Rose Gold", filter: "brightness(1.1) contrast(1.1) saturate(1.25) sepia(0.2) hue-rotate(-15deg)" },
       { name: "Ethereal Aura", filter: "brightness(1.15) contrast(0.9) saturate(1.3) hue-rotate(5deg)" },
-      { name: "Mauve Sunset", filter: "brightness(1.02) contrast(1.1) saturate(1.4) hue-rotate(-20deg)" },
-      { name: "Sunshine Flare", filter: "brightness(1.12) contrast(1.05) saturate(1.3) sepia(0.15)" },
-      { name: "Moody Vintage", filter: "brightness(0.95) contrast(1.2) saturate(0.85) sepia(0.25)" },
-      { name: "Pearl Sheen", filter: "brightness(1.18) contrast(0.92) saturate(1.1)" }
+      { name: "Mauve Sunset", filter: "brightness(1.02) contrast(1.1) saturate(1.4) hue-rotate(-20deg)" }
     ];
 
     function initSelectors() {
       ['video', 'photo'].forEach(type => {
-        const fontSelect = document.getElementById(`${type}FontSelect`);
-        fontList.forEach(font => {
-          const opt = document.createElement('option');
-          opt.value = font;
-          opt.textContent = font;
-          fontSelect.appendChild(opt);
-        });
-
         const filterGrid = document.getElementById(`${type}FilterGrid`);
+        filterGrid.innerHTML = "";
         filterPresets.forEach((f, idx) => {
           const card = document.createElement('div');
           card.className = `filter-card ${idx === 0 ? 'active' : ''}`;
@@ -435,22 +150,13 @@
       });
     }
 
-    let currentVideoFilter = "none";
-    let currentPhotoFilter = "none";
-    let textStyles = { video: { bold: false, italic: false }, photo: { bold: false, italic: false } };
-
+    let currentVideoFilter = "none", currentPhotoFilter = "none";
     function selectFilter(type, filterValue, cardEl) {
       const grid = document.getElementById(`${type}FilterGrid`);
       grid.querySelectorAll('.filter-card').forEach(c => c.classList.remove('active'));
       cardEl.classList.add('active');
-      if (type === 'video') { currentVideoFilter = filterValue; drawVideoFrame(); }
+      if (type === 'video') { currentVideoFilter = filterValue; renderVideoFrame(); }
       else { currentPhotoFilter = filterValue; renderPhoto(); }
-    }
-
-    function toggleStyle(style, type) {
-      textStyles[type][style] = !textStyles[type][style];
-      document.getElementById(`${type}${style.charAt(0).toUpperCase() + style.slice(1)}Btn`).classList.toggle('active');
-      if (type === 'video') drawVideoFrame(); else renderPhoto();
     }
 
     function switchMainTab(tabId) {
@@ -460,20 +166,9 @@
       event.target.classList.add('active');
     }
 
-    function switchSubTab(moduleType, subTabId) {
-      const parent = document.getElementById(`${moduleType}-studio`);
-      parent.querySelectorAll('.submodule-content').forEach(s => s.style.display = 'none');
-      parent.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(subTabId).style.display = 'block';
-      event.target.classList.add('active');
-    }
-
-    const pCanvas = document.getElementById('photoCanvas');
-    const pCtx = pCanvas.getContext('2d');
-    const vCanvas = document.getElementById('videoCanvas');
-    const vCtx = vCanvas.getContext('2d');
-
+    // --- PHOTO STUDIO LOGIC ---
     let loadedImages = {};
+    const pCanvas = document.getElementById('photoCanvas'), pCtx = pCanvas.getContext('2d');
 
     function loadPhoto(e, key) {
       const file = e.target.files[0];
@@ -481,15 +176,31 @@
       const img = new Image();
       img.onload = () => {
         loadedImages[key] = img;
-        renderPhoto();
+        if(key === 'ref' && loadedImages.target) mimicReferenceStyle();
+        else renderPhoto();
       };
       img.src = URL.createObjectURL(file);
     }
 
-    function renderPhoto() {
-      const img = loadedImages.target || loadedImages.ref || loadedImages.prompt || loadedImages.bgSubject;
-      if (!img) return;
+    function mimicReferenceStyle() {
+      const tempC = document.createElement('canvas');
+      const tempCtx = tempC.getContext('2d');
+      tempC.width = 60; tempC.height = 60;
+      tempCtx.drawImage(loadedImages.ref, 0, 0, 60, 60);
+      const data = tempCtx.getImageData(0, 0, 60, 60).data;
+      let r=0, g=0, b=0;
+      for(let i=0; i<data.length; i+=4) { r+=data[i]; g+=data[i+1]; b+=data[i+2]; }
+      const total = data.length/4;
+      const avgR = r/total, avgB = b/total;
+      
+      if(avgR > avgB) currentPhotoFilter = "brightness(1.12) saturate(1.35) sepia(0.25)";
+      else currentPhotoFilter = "brightness(1.06) saturate(1.28) hue-rotate(15deg)";
+      renderPhoto();
+    }
 
+    function renderPhoto() {
+      const img = loadedImages.target || loadedImages.ref;
+      if (!img) return;
       pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
       pCtx.filter = currentPhotoFilter;
       pCtx.drawImage(img, 0, 0, pCanvas.width, pCanvas.height);
@@ -497,120 +208,152 @@
 
       const text = document.getElementById('photoTextInput').value;
       if (text) {
-        const fontName = document.getElementById('photoFontSelect').value;
-        const color = document.getElementById('photoTextColor').value;
-        const fontStyle = `${textStyles.photo.italic ? 'italic ' : ''}${textStyles.photo.bold ? 'bold ' : ''}70px '${fontName}'`;
-        
-        pCtx.font = fontStyle;
-        pCtx.fillStyle = color;
+        pCtx.font = "bold 65px Poppins";
+        pCtx.fillStyle = "#ffffff";
         pCtx.textAlign = "center";
-        pCtx.shadowColor = "rgba(0,0,0,0.5)";
-        pCtx.shadowBlur = 10;
+        pCtx.shadowColor = "rgba(0,0,0,0.6)";
+        pCtx.shadowBlur = 12;
         pCtx.fillText(text, pCanvas.width / 2, pCanvas.height - 150);
       }
     }
 
     function applyPhotoPrompt() {
       const prompt = document.getElementById('photoPromptInput').value.toLowerCase();
-      if (!prompt) return;
-
-      let filterStr = "brightness(1.1) contrast(1.05) ";
-      if (prompt.includes('blue') || prompt.includes('cyan')) filterStr += "hue-rotate(180deg) saturate(1.4) ";
-      if (prompt.includes('pink') || prompt.includes('lavender')) filterStr += "hue-rotate(-40deg) saturate(1.3) ";
-      if (prompt.includes('vintage') || prompt.includes('warm')) filterStr += "sepia(0.3) saturate(1.2) ";
-      if (prompt.includes('dark') || prompt.includes('moody')) filterStr += "brightness(0.85) contrast(1.3) ";
-
-      currentPhotoFilter = filterStr;
+      if(!prompt) return;
+      if (prompt.includes('pink')) currentPhotoFilter = "brightness(1.1) saturate(1.4) hue-rotate(-30deg)";
+      else if (prompt.includes('cyber') || prompt.includes('blue')) currentPhotoFilter = "brightness(1.05) saturate(1.3) hue-rotate(180deg)";
+      else if (prompt.includes('dreamy')) currentPhotoFilter = "brightness(1.15) contrast(0.9) saturate(1.2)";
       renderPhoto();
     }
 
-    function renderBGColorChange() {
-      const color = document.getElementById('bgColorPicker').value;
-      const img = loadedImages.bgSubject;
-      if (!img) return;
-
-      pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
-      pCtx.fillStyle = color;
-      pCtx.fillRect(0, 0, pCanvas.width, pCanvas.height);
-      pCtx.drawImage(img, 0, 0, pCanvas.width, pCanvas.height);
-    }
-
-    function enhancePhoto() {
-      currentPhotoFilter = "contrast(1.2) brightness(1.05) saturate(1.15)";
+    function enhancePhotoUnblur() {
+      if(!loadedImages.target) return;
+      currentPhotoFilter = "contrast(1.3) brightness(1.08) saturate(1.2)";
       renderPhoto();
     }
 
     function exportPhoto() {
+      if(!loadedImages.target) { alert("Please upload target photo first!"); return; }
       const link = document.createElement('a');
       link.download = 'social-buddy-photo.png';
       link.href = pCanvas.toDataURL('image/png');
       link.click();
     }
 
-    let videoElement = document.createElement('video');
-    videoElement.loop = true;
-    videoElement.muted = true;
+    // --- VIDEO STUDIO LOGIC (BLANK PREVIEW & EXACT SLOTS) ---
+    const vCanvas = document.getElementById('videoCanvas'), vCtx = vCanvas.getContext('2d');
+    let refAudioEl = document.createElement('video');
+    let slotVideos = [];
+    let currentActiveSlotIndex = 0;
+    let audioCtx = null, audioDest = null;
+    let loopRunning = false;
 
-    function loadRefVideo(e) {
+    function loadRefVideoStructure(e) {
       const file = e.target.files[0];
       if (!file) return;
-      videoElement.src = URL.createObjectURL(file);
-      videoElement.play();
-      videoElement.onplay = () => drawVideoLoop();
+      refAudioEl.src = URL.createObjectURL(file);
+      refAudioEl.muted = false; // Reference Audio Active
+      refAudioEl.crossOrigin = "anonymous";
+
+      refAudioEl.onloadedmetadata = () => {
+        const dur = refAudioEl.duration;
+        const slotsCount = Math.min(Math.max(Math.floor(dur / 2.5), 2), 5);
+        slotVideos = new Array(slotsCount).fill(null);
+
+        let container = document.getElementById('videoSlotsContainer');
+        container.innerHTML = "";
+        for (let i = 0; i < slotsCount; i++) {
+          let div = document.createElement('div');
+          div.className = "slot-item";
+          div.innerHTML = `<span>Slot ${i+1} (~${(dur/slotsCount).toFixed(1)}s)</span><input type="file" accept="video/*" onchange="loadSlotClip(${i}, event)">`;
+          container.appendChild(div);
+        }
+      };
+
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const src = audioCtx.createMediaElementSource(refAudioEl);
+        audioDest = audioCtx.createMediaStreamDestination();
+        src.connect(audioDest);
+        src.connect(audioCtx.destination);
+      }
     }
 
-    function drawVideoFrame() {
-      if (!videoElement.paused && !videoElement.ended) {
+    function loadSlotClip(index, e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const sVid = document.createElement('video');
+      sVid.src = URL.createObjectURL(file);
+      sVid.loop = true;
+      sVid.muted = true; // STRICTLY MUTED SLOT CLIPS
+      sVid.crossOrigin = "anonymous";
+      sVid.play();
+      slotVideos[index] = sVid;
+      currentActiveSlotIndex = index;
+
+      // Simulate Lightning trigger on specific slots (e.g., Slot 4) mimicking reference structure
+      if(index >= 3) {
+        setTimeout(() => {
+          currentVideoFilter = "brightness(1.6) contrast(1.5)";
+          setTimeout(() => { currentVideoFilter = "none"; }, 250);
+        }, 400);
+      }
+
+      if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+      refAudioEl.play();
+      
+      if(!loopRunning) {
+        loopRunning = true;
+        startVideoLoop();
+      }
+    }
+
+    function renderVideoFrame() {
+      const activeVid = slotVideos[currentActiveSlotIndex];
+      if (activeVid && !activeVid.paused) {
         vCtx.clearRect(0, 0, vCanvas.width, vCanvas.height);
         vCtx.filter = currentVideoFilter;
-        vCtx.drawImage(videoElement, 0, 0, vCanvas.width, vCanvas.height);
+        vCtx.drawImage(activeVid, 0, 0, vCanvas.width, vCanvas.height);
         vCtx.filter = "none";
 
         const text = document.getElementById('videoTextInput').value;
         if (text) {
-          const fontName = document.getElementById('videoFontSelect').value;
-          const color = document.getElementById('videoTextColor').value;
-          vCtx.font = `${textStyles.video.italic ? 'italic ' : ''}${textStyles.video.bold ? 'bold ' : ''}50px '${fontName}'`;
-          vCtx.fillStyle = color;
+          vCtx.font = "bold 50px Poppins";
+          vCtx.fillStyle = "#ffffff";
           vCtx.textAlign = "center";
+          vCtx.shadowColor = "rgba(0,0,0,0.6)";
+          vCtx.shadowBlur = 12;
           vCtx.fillText(text, vCanvas.width / 2, vCanvas.height - 100);
         }
       }
     }
 
-    function drawVideoLoop() {
-      drawVideoFrame();
-      requestAnimationFrame(drawVideoLoop);
+    function startVideoLoop() {
+      renderVideoFrame();
+      if(loopRunning) {
+        requestAnimationFrame(startVideoLoop);
+      }
     }
-
-    function loadPromptVideo(e) { loadRefVideo(e); }
-    function applyVideoPrompt() {
-      const prompt = document.getElementById('videoPromptInput').value.toLowerCase();
-      let filterStr = "brightness(1.1) ";
-      if (prompt.includes('pink')) filterStr += "hue-rotate(-30deg) saturate(1.3) ";
-      if (prompt.includes('vintage')) filterStr += "sepia(0.3) contrast(1.2) ";
-      currentVideoFilter = filterStr;
-    }
-
-    function updateVideoText() { drawVideoFrame(); }
-    function updatePhotoText() { renderPhoto(); }
 
     function exportVideo() {
+      if (!slotVideos.some(v => v !== null)) { alert("Please upload reference video and slot clips first!"); return; }
       const stream = vCanvas.captureStream(30);
+      if (audioDest) {
+        const audioTrack = audioDest.stream.getAudioTracks()[0];
+        if (audioTrack) stream.addTrack(audioTrack);
+      }
       const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
       const chunks = [];
-
       recorder.ondataavailable = e => chunks.push(e.data);
       recorder.onstop = () => {
         const blob = new Blob(chunks, { type: 'video/mp4' });
-        const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
-        a.href = url;
+        a.href = URL.createObjectURL(blob);
         a.download = 'social-buddy-reels.mp4';
         a.click();
       };
       recorder.start();
-      setTimeout(() => recorder.stop(), 3000);
+      setTimeout(() => recorder.stop(), 5000);
     }
 
     window.onload = initSelectors;
