@@ -1,4 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Social Buddy - Aesthetic Creative Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Cinzel:wght@600&family=Comfortaa:wght@600&family=Dancing+Script:wght@600&family=Great+Vibes&family=Monoton&family=Pacifico&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;600&family=Sacramento&family=Space+Grotesk:wght@600&family=Syne:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f3e8ff 0%, #ffe4e6 50%, #e0f2fe 100%);
+      --card-bg: rgba(255, 240, 245, 0.75);
+      --card-border: rgba(255, 255, 255, 0.8);
+      --primary-neon: #ec4899;
+      --secondary-neon: #8b5cf6;
+      --text-main: #4c1d95;
+      --text-muted: #6b21a8;
+      --neon-shadow: 0 0 15deg rgba(236, 72, 153, 0.4), 0 0 25deg rgba(139, 92, 246, 0.3);
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    header h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      background: linear-gradient(90deg, #db2777, #7c3aed, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 12px rgba(124, 58, 237, 0.15);
+    }
+    header p { color: var(--text-muted); font-size: 0.95rem; font-weight: 600; }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .tab-btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--text-main);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    .tab-btn.active {
+      background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+      color: white;
+      box-shadow: var(--neon-shadow);
+      transform: translateY(-2px);
+    }
+
+    .studio-module { display: none; }
+    .studio-module.active { display: block; }
+
+    .sub-tabs {
+      display: flex;
       justify-content: center;
       gap: 10px;
       margin-bottom: 20px;
@@ -340,7 +414,6 @@
       { name: "Pearl Sheen", filter: "brightness(1.18) contrast(0.92) saturate(1.1)" }
     ];
 
-    // Populate Filters Grid & Font Selectors
     function initSelectors() {
       ['video', 'photo'].forEach(type => {
         const fontSelect = document.getElementById(`${type}FontSelect`);
@@ -380,7 +453,6 @@
       if (type === 'video') drawVideoFrame(); else renderPhoto();
     }
 
-    // Navigation Switches
     function switchMainTab(tabId) {
       document.querySelectorAll('.studio-module').forEach(m => m.classList.remove('active'));
       document.querySelectorAll('.nav-tabs .tab-btn').forEach(b => b.classList.remove('active'));
@@ -396,14 +468,12 @@
       event.target.classList.add('active');
     }
 
-    // Canvas Engine Implementation
     const pCanvas = document.getElementById('photoCanvas');
     const pCtx = pCanvas.getContext('2d');
     const vCanvas = document.getElementById('videoCanvas');
     const vCtx = vCanvas.getContext('2d');
 
     let loadedImages = {};
-    let refAudioStream = null;
 
     function loadPhoto(e, key) {
       const file = e.target.files[0];
@@ -417,7 +487,7 @@
     }
 
     function renderPhoto() {
-      const img = loadedImages.target || loadedImages.prompt || loadedImages.bgSubject;
+      const img = loadedImages.target || loadedImages.ref || loadedImages.prompt || loadedImages.bgSubject;
       if (!img) return;
 
       pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
@@ -425,7 +495,6 @@
       pCtx.drawImage(img, 0, 0, pCanvas.width, pCanvas.height);
       pCtx.filter = "none";
 
-      // Render Text Overlay
       const text = document.getElementById('photoTextInput').value;
       if (text) {
         const fontName = document.getElementById('photoFontSelect').value;
@@ -478,7 +547,6 @@
       link.click();
     }
 
-    // Video Engine Implementation
     let videoElement = document.createElement('video');
     videoElement.loop = true;
     videoElement.muted = true;
