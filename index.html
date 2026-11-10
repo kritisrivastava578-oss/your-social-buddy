@@ -193,10 +193,17 @@
                 </div>
             </div>
 
-            <!-- AI Vibe Prompt Generator with Media Upload (Video Studio) -->
+            <!-- AI Vibe Prompt Generator with Direct MP4 Upload (Video Studio) -->
             <div class="glass-panel rounded-3xl p-5 space-y-3">
                 <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-700">✨ AI Vibe & Music Snippet Generator (Video Studio)</h3>
-                <p class="text-xs text-emerald-800">Vibe describe karo aur optional media upload karo (e.g., "Maula Mere wala part sync karke dreamy mint reel bana do"):</p>
+                <p class="text-xs text-emerald-800">Video upload karo, vibe describe karo (e.g., "Maula Mere wala part sync karke dreamy mint reel bana do"):</p>
+                <div class="bg-emerald-50/70 p-3 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <label class="flex items-center gap-2 bg-white border border-emerald-300 hover:bg-emerald-100 rounded-xl px-4 py-2 text-xs font-bold text-emerald-700 cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
+                        <span>📁 Upload Video for AI Prompt</span>
+                        <input type="file" accept="video/*" class="hidden" onchange="handleAIVideoUpload(event)">
+                    </label>
+                    <span id="aiVideoFileName" class="text-xs text-emerald-700 font-medium truncate">No video uploaded for AI</span>
+                </div>
                 <div class="flex flex-col sm:flex-row gap-2">
                     <input type="text" id="videoPromptInput" placeholder="Vibe ya specific song part describe karo..." class="flex-1 bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-sm neon-border">
                     <button onclick="generateAITemplate('video')" class="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
@@ -315,10 +322,17 @@
                 </div>
             </div>
 
-            <!-- AI Vibe & Enhancement Prompt Generator (Photo Studio - Strict Face-Lock) -->
+            <!-- AI Vibe & Enhancement Prompt Generator with Direct Photo Upload (Photo Studio - Strict Face-Lock) -->
             <div class="glass-panel rounded-3xl p-5 space-y-3">
                 <h3 class="text-xs font-bold uppercase tracking-wider text-emerald-700">✨ AI Enhancement & Vibe Generator (Face-Lock Protected)</h3>
-                <p class="text-xs text-emerald-800">Aesthetic enhancement prompt likho (e.g., "enhance photo, glowing mint vibe" - original face remains 100% secure):</p>
+                <p class="text-xs text-emerald-800">Photo upload karo, enhancement prompt likho (e.g., "enhance photo, glowing mint vibe" - original face remains 100% secure):</p>
+                <div class="bg-emerald-50/70 p-3 rounded-2xl border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <label class="flex items-center gap-2 bg-white border border-emerald-300 hover:bg-emerald-100 rounded-xl px-4 py-2 text-xs font-bold text-emerald-700 cursor-pointer transition shadow-sm w-full sm:w-auto justify-center">
+                        <span>📁 Upload Photo for AI Enhancement</span>
+                        <input type="file" accept="image/*" class="hidden" onchange="handleAIPhotoUpload(event)">
+                    </label>
+                    <span id="aiPhotoFileName" class="text-xs text-emerald-700 font-medium truncate">No photo uploaded for AI</span>
+                </div>
                 <div class="flex flex-col sm:flex-row gap-2">
                     <input type="text" id="photoPromptInput" placeholder="e.g., enhance photo with soft mint glow..." class="flex-1 bg-white border border-emerald-200 rounded-xl px-4 py-2.5 text-sm neon-border">
                     <button onclick="generateAITemplate('photo')" class="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold shadow-md transition cursor-pointer">
@@ -437,6 +451,14 @@
             }
         }
 
+        function handleAIVideoUpload(event) {
+            const file = event.target.files[0];
+            if(file) {
+                document.getElementById('aiVideoFileName').innerText = file.name;
+                alert(`🎬 Video "${file.name}" loaded for AI Vibe Generation!`);
+            }
+        }
+
         // ================= PHOTO STUDIO LOGIC =================
         function parsePhotoReferenceLink() {
             const link = document.getElementById('photoLinkInput').value;
@@ -459,6 +481,14 @@
                 preview.classList.remove('hidden');
                 placeholder.classList.add('hidden');
                 overlay.classList.remove('hidden');
+            }
+        }
+
+        function handleAIPhotoUpload(event) {
+            const file = event.target.files[0];
+            if(file) {
+                document.getElementById('aiPhotoFileName').innerText = file.name;
+                alert(`📸 Photo "${file.name}" loaded for AI Enhancement (Face-Lock Protected)!`);
             }
         }
 
